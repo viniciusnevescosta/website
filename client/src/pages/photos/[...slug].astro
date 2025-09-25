@@ -1,0 +1,158 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import FormattedDate from "@components/FormattedDate.astro";
+import BackToPrev from "@components/BackToPrev.astro";
+import Link from "@components/Link.astro";
+import PhotoViewer from "@components/PhotoViewer.astro";
+
+export async function getStaticPaths() {
+  const collections = (await getCollection("photos"))
+    .filter(collection => !collection.data.draft)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  return collections.map((collection) => ({
+    params: { slug: collection.slug },
+    props: collection,
+  }));
+}
+type Props = CollectionEntry<"photos">;
+
+const collection = Astro.props;
+const { Content } = await collection.render();
+---
+
+<PageLayout title={collection.data.title} description={collection.data.description}>
+  <Container>
+    <div class="animate">
+      <BackToPrev href="/photos">
+        Back to photos
+      </BackToPrev>
+    </div>
+    <div class="space-y-1 my-10">
+      <div class="animate flex items-center gap-1.5">
+        <div class="font-base text-sm">
+          <FormattedDate date={collection.data.date} />
+        </div>
+        {collection.data.photos && (
+          <>
+            &bull;
+            <div class="font-base text-sm">
+              {collection.data.photos.length} photos
+            </div>
+          </>
+        )}
+      </div>
+      <div class="animate text-2xl font-semibold text-black dark:text-white">
+        {collection.data.title}
+      </div>
+      {collection.data.collectionURL && (
+        <nav class="animate flex gap-1">
+          <Link href={collection.data.collectionURL} external>
+            unsplash
+          </Link>
+        </nav>
+      )}
+    </div>
+    
+    <article class="animate mb-8">
+      <Content />
+    </article>
+
+    {collection.data.photos && collection.data.photos.length > 0 && (
+      <div class="animate space-y-6">
+        {collection.data.photos.map((photo, index) => (
+          <div class="w-full">
+            <button
+              type="button"
+              class="photo-item w-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-black/20 dark:focus:ring-white/30 rounded-lg group"
+              data-photo-index={index}
+              aria-label={`View photo: ${photo.alt}`}
+            >
+              <img 
+                src={photo.url} 
+                alt={photo.alt}
+                class="w-full h-auto rounded-lg shadow-md group-hover:shadow-xl transition-shadow duration-300"
+                loading={index === 0 ? "eager" : "lazy"}
+              />
+            </button>
+          </div>
+        ))}
+      </div>
+    )}
+
+    <!-- Photo Viewer Component -->
+    <PhotoViewer />
+
+    <script define:vars={{ photos: collection.data.photos, collectionSlug: collection.slug }}>
+      // Create a unique namespace for this collection
+      const currentCollectionPhotos = [...photos]; // Create a copy
+      const currentCollectionSlug = collectionSlug;
+      
+      console.log("Initializing photo collection:", currentCollectionSlug, "with", currentCollectionPhotos.length, "photos");
+      
+      function setupPhotoClicks() {
+        // Only target photo items in the current page
+        const photoItems = document.querySelectorAll(".photo-item");
+        
+        console.log("Setting up clicks for", photoItems.length, "photo items in collection:", currentCollectionSlug);
+        
+        photoItems.forEach((item) => {
+          // Remove any existing listeners to prevent duplicates
+          const newItem = item.cloneNode(true);
+          item.parentNode.replaceChild(newItem, item);
+          
+          newItem.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const index = parseInt(newItem.dataset.photoIndex || "0");
+            
+            console.log("Photo clicked:", index, "from collection:", currentCollectionSlug);
+            console.log("Photos to pass to viewer:", currentCollectionPhotos.length);
+            
+            if (window.openPhotoViewer && currentCollectionPhotos && currentCollectionPhotos.length > 0) {
+              // Always pass the current collection's photos
+              window.openPhotoViewer(currentCollectionPhotos, index);
+            } else {
+              console.error("PhotoViewer not available or no photos:", {
+                viewerAvailable: !!window.openPhotoViewer,
+                photosCount: currentCollectionPhotos ? currentCollectionPhotos.length : 0
+              });
+            }
+          });
+
+          newItem.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              newItem.click();
+            }
+          });
+        });
+      }
+
+      function initPhotoClicks() {
+        if (window.photoViewerReady) {
+          console.log("PhotoViewer ready, setting up clicks for:", currentCollectionSlug);
+          setupPhotoClicks();
+        } else {
+          console.log("Waiting for PhotoViewer to be ready...");
+          document.addEventListener("photoViewerReady", setupPhotoClicks);
+        }
+      }
+
+      // Cleanup any previous collection handlers
+      document.removeEventListener("photoViewerReady", setupPhotoClicks);
+
+      // Initialize for current collection
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initPhotoClicks);
+      } else {
+        initPhotoClicks();
+      }
+
+      // Handle Astro page transitions
+      document.addEventListener("astro:page-load", initPhotoClicks);
+    </script>
+  </Container>
+</PageLayout>
