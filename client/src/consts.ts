@@ -37,10 +37,6 @@ export const SOCIALS: Socials = [
     HREF: "https://github.com/viniciusnevescosta"
   },
   { 
-    NAME: "source",
-    HREF: "https://git.viniciusnevescosta.com/vinicius"
-  },
-  { 
     NAME: "RSS",
     HREF: "/rss.xml"
   },
