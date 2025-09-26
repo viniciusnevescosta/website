@@ -1,6 +1,7 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import { HOME } from "@consts";
+import { marked } from "marked";
 
 type Context = {
   site: string
@@ -20,12 +21,12 @@ export async function GET(context: Context) {
     title: HOME.TITLE,
     description: HOME.DESCRIPTION,
     site: context.site,
-    items: items.map((item) => ({
+    items: await Promise.all(items.map(async (item) => ({
       title: item.data.title,
       description: item.data.description,
-      content: item.body,
+      content: await marked.parse(item.body),
       pubDate: item.data.date,
       link: `/${item.collection}/${item.slug}/`,
-    })),
+    }))),
   });
 }
