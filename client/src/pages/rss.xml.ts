@@ -23,6 +23,7 @@ export async function GET(context: Context) {
     items: items.map((item) => ({
       title: item.data.title,
       description: item.data.description,
+      content: item.body,
       pubDate: item.data.date,
       link: `/${item.collection}/${item.slug}/`,
     })),
