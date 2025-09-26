@@ -3,6 +3,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
+    "build:vercel": "node build-vercel.cjs",
     "preview": "astro preview",
     "astro": "astro",
     "fix": "eslint . --fix"
