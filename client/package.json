@@ -3,6 +3,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
+    "build:prod": "node resolve-symlinks.cjs resolve && npm run build && node resolve-symlinks.cjs restore",
+    "symlinks:resolve": "node resolve-symlinks.cjs resolve",
+    "symlinks:restore": "node resolve-symlinks.cjs restore",
     "preview": "astro preview",
     "astro": "astro",
     "fix": "eslint . --fix"
