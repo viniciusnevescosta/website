@@ -1,0 +1,140 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import FormattedDate from "@components/FormattedDate.astro";
+import { readingTime } from "@lib/utils";
+import BackToPrev from "@components/BackToPrev.astro";
+import PhotoViewer from "@components/PhotoViewer.astro";
+
+export async function getStaticPaths() {
+  const posts = (await getCollection("blog"))
+    .filter(post => !post.data.draft)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<"blog">;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<PageLayout title={post.data.title} description={post.data.description}>
+  <Container>
+    <div class="animate">
+      <BackToPrev href="/blog">
+        Back to blog
+      </BackToPrev>
+    </div>
+    <div class="space-y-1 my-10">
+      <div class="animate flex items-center gap-1.5">
+        <div class="font-base text-sm">
+          <FormattedDate date={post.data.date} />
+        </div>
+        &bull;
+        <div class="font-base text-sm">
+          {readingTime(post.body)}
+        </div>
+      </div>
+      <div class="animate text-2xl font-semibold text-black dark:text-white">
+        {post.data.title}
+      </div>
+    </div>
+    <article class="animate">
+      <Content />
+    </article>
+
+    <!-- Photo Viewer Component -->
+    <PhotoViewer />
+
+    <script define:vars={{ postSlug: post.slug }}>
+      function setupBlogPhotoViewer() {
+        // Find all images in the article content
+        const articleImages = document.querySelectorAll('article img');
+        
+        if (articleImages.length === 0) return;
+
+        console.log(`Found ${articleImages.length} images in blog post: ${postSlug}`);
+
+        // Convert images to Photo objects
+        const photos = Array.from(articleImages).map((img, index) => ({
+          url: img.src,
+          alt: img.alt || `Image ${index + 1}`
+        }));
+
+        // Add click handlers to images
+        articleImages.forEach((img, index) => {
+          // Wrap image in a clickable container if not already wrapped
+          if (img.parentElement?.tagName !== 'BUTTON') {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'photo-item cursor-pointer focus:outline-none focus:ring-2 focus:ring-black/20 dark:focus:ring-white/30 rounded-lg group block w-full';
+            button.setAttribute('data-photo-index', index.toString());
+            button.setAttribute('aria-label', `View image: ${img.alt || `Image ${index + 1}`}`);
+            
+            // Replace img with button containing img
+            img.parentNode?.insertBefore(button, img);
+            button.appendChild(img);
+            
+            // Add hover effect to img
+            img.className = `${img.className} group-hover:scale-[1.02] transition-transform duration-300`.trim();
+          }
+
+          // Add click handler
+          const clickHandler = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            console.log(`Blog image clicked: ${index} from post: ${postSlug}`);
+            
+            if (window.openPhotoViewer && photos && photos.length > 0) {
+              window.openPhotoViewer(photos, index);
+            } else {
+              console.error('PhotoViewer not available or no photos:', {
+                viewerAvailable: !!window.openPhotoViewer,
+                photosCount: photos ? photos.length : 0
+              });
+            }
+          };
+
+          const keyHandler = (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              clickHandler(e);
+            }
+          };
+
+          const button = img.closest('button') || img;
+          button.addEventListener('click', clickHandler);
+          button.addEventListener('keydown', keyHandler);
+        });
+      }
+
+      function initBlogPhotoViewer() {
+        if (window.photoViewerReady) {
+          console.log('PhotoViewer ready, setting up blog images for:', postSlug);
+          setupBlogPhotoViewer();
+        } else {
+          console.log('Waiting for PhotoViewer to be ready...');
+          document.addEventListener('photoViewerReady', setupBlogPhotoViewer);
+        }
+      }
+
+      // Cleanup any previous handlers
+      document.removeEventListener('photoViewerReady', setupBlogPhotoViewer);
+
+      // Initialize
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initBlogPhotoViewer);
+      } else {
+        initBlogPhotoViewer();
+      }
+
+      // Handle Astro page transitions
+      document.addEventListener('astro:page-load', initBlogPhotoViewer);
+    </script>
+  </Container>
+</PageLayout>

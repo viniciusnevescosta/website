@@ -1,0 +1,187 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import FormattedDate from "@components/FormattedDate.astro";
+import BackToPrev from "@components/BackToPrev.astro";
+import Link from "@components/Link.astro";
+import PhotoViewer from "@components/PhotoViewer.astro";
+
+export async function getStaticPaths() {
+  const collections = (await getCollection("photos"))
+    .filter(collection => !collection.data.draft)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  return collections.map((collection) => ({
+    params: { slug: collection.slug },
+    props: collection,
+  }));
+}
+type Props = CollectionEntry<"photos">;
+
+const collection = Astro.props;
+const { Content } = await collection.render();
+---
+
+<PageLayout title={collection.data.title} description={collection.data.description}>
+  <Container>
+    <div class="animate">
+      <BackToPrev href="/photos">
+        Back to photos
+      </BackToPrev>
+    </div>
+    <div class="space-y-1 my-10">
+      <div class="animate flex items-center gap-1.5">
+        <div class="font-base text-sm">
+          <FormattedDate date={collection.data.date} />
+        </div>
+        {collection.data.photos && (
+          <>
+            &bull;
+            <div class="font-base text-sm">
+              {collection.data.photos.length} photos
+            </div>
+          </>
+        )}
+      </div>
+      <div class="animate text-2xl font-semibold text-black dark:text-white">
+        {collection.data.title}
+      </div>
+      {collection.data.collectionURL && (
+        <nav class="animate flex gap-1">
+          <Link href={collection.data.collectionURL} external>
+            unsplash
+          </Link>
+        </nav>
+      )}
+    </div>
+    
+    <article class="animate mb-8">
+      <Content />
+    </article>
+
+    {collection.data.photos && collection.data.photos.length > 0 && (
+      <div id="photo-collection-root" data-collection-slug={collection.slug} class="animate space-y-6">
+        {collection.data.photos.map((photo, index) => (
+          <div class="w-full">
+            <button
+              type="button"
+              class="photo-item w-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-black/20 dark:focus:ring-white/30 rounded-lg group"
+              data-photo-index={index}
+              aria-label={`View photo: ${photo.alt}`}
+            >
+              <img 
+                src={photo.url} 
+                alt={photo.alt}
+                class="w-full h-auto rounded-lg shadow-md group-hover:shadow-xl transition-shadow duration-300"
+                loading={index === 0 ? "eager" : "lazy"}
+              />
+            </button>
+          </div>
+        ))}
+      </div>
+    )}
+
+    <!-- Photo Viewer Component -->
+    <PhotoViewer />
+
+    <script define:vars={{ photos: collection.data.photos, collectionSlug: collection.slug }}>
+  // NOTE:
+  // This page is navigated with Astro view transitions (client-side), so scripts from previous
+  // photo pages may still be alive. We must ensure only the *current* collection can bind handlers.
+
+  const currentCollectionSlug = collectionSlug;
+  const currentCollectionPhotos = Array.isArray(photos) ? photos.map((p) => ({ ...p })) : [];
+
+  const ROOT_SELECTOR = "#photo-collection-root";
+  const GLOBAL_KEYS = {
+    pageLoadHandler: "__photoCollectionPageLoadHandler",
+    viewerReadyHandler: "__photoCollectionViewerReadyHandler",
+  };
+
+  function getRoot() {
+    return document.querySelector(ROOT_SELECTOR);
+  }
+
+  function isCurrentCollectionPage() {
+    const root = getRoot();
+    return !!root && root.getAttribute("data-collection-slug") === currentCollectionSlug;
+  }
+
+  function setupPhotoDelegation() {
+    if (!isCurrentCollectionPage()) return;
+
+    const root = getRoot();
+    if (!root) return;
+
+    // Remove previous handlers bound to *this* root (if any)
+    const prev = root.__photoDelegation;
+    if (prev) {
+      root.removeEventListener("click", prev.onClick);
+      root.removeEventListener("keydown", prev.onKeyDown);
+    }
+
+    const onClick = (e) => {
+      const btn = e.target?.closest?.("button.photo-item");
+      if (!btn) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      const index = parseInt(btn.dataset.photoIndex || "0", 10);
+
+      if (window.openPhotoViewer && currentCollectionPhotos.length > 0) {
+        window.openPhotoViewer(currentCollectionPhotos, index);
+      }
+    };
+
+    const onKeyDown = (e) => {
+      // Keyboard accessibility: open on Enter/Space
+      if (e.key !== "Enter" && e.key !== " ") return;
+
+      const btn = e.target?.closest?.("button.photo-item");
+      if (!btn) return;
+
+      e.preventDefault();
+      btn.click();
+    };
+
+    root.addEventListener("click", onClick);
+    root.addEventListener("keydown", onKeyDown);
+
+    // Store refs to allow clean rebinds
+    root.__photoDelegation = { onClick, onKeyDown };
+  }
+
+  function initPhotoPage() {
+    // If this script is from a previous page, bail out (prevents "Lambari" photos showing on other pages).
+    if (!isCurrentCollectionPage()) return;
+
+    if (window.photoViewerReady) {
+      setupPhotoDelegation();
+    } else {
+      // Wait for PhotoViewer to be ready (but ensure only one active listener globally).
+      const prev = window[GLOBAL_KEYS.viewerReadyHandler];
+      if (prev) document.removeEventListener("photoViewerReady", prev);
+
+      const onViewerReady = () => setupPhotoDelegation();
+      window[GLOBAL_KEYS.viewerReadyHandler] = onViewerReady;
+      document.addEventListener("photoViewerReady", onViewerReady, { once: true });
+    }
+  }
+
+  // Ensure only the latest photo-page script owns the astro:page-load hook.
+  const prevPageLoad = window[GLOBAL_KEYS.pageLoadHandler];
+  if (prevPageLoad) document.removeEventListener("astro:page-load", prevPageLoad);
+
+  window[GLOBAL_KEYS.pageLoadHandler] = initPhotoPage;
+  document.addEventListener("astro:page-load", initPhotoPage);
+
+  // Initial run
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initPhotoPage, { once: true });
+  } else {
+    initPhotoPage();
+  }
+</script>
+  </Container>
+</PageLayout>

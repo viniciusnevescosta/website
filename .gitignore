@@ -6,6 +6,7 @@ dist/
 
 # dependencies
 node_modules/
+client/pnpm-lock.yaml
 
 # logs
 npm-debug.log*
