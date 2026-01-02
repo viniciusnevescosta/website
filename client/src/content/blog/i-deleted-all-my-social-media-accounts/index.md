@@ -55,7 +55,6 @@ Right now, I only kept a few—and with clear boundaries:
 <li>LinkedIn: I only log in to update my professional information;</li>
 <li>GitHub (for now): it has some social mechanics, but I use it to contribute to open source and publish my projects;</li>
 <li>YouTube: I follow creators I consider more organic. Videos take longer to come out, but they’re usually higher quality and a good starting point to learn something new;</li>
-<li>Unsplash: I love photography, and for me it’s a hobby that actually helps me deal with anxiety.</li>
 
 ## The result: less anxiety, more peace
 
