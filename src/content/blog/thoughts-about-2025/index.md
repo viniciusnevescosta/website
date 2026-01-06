@@ -26,7 +26,9 @@ Suddenly, I wasn’t just keeping systems running, I was building things that di
 
 If I had to summarize my biggest work-related learning from 2025, it would be this: organization is not optional.
 
-An idea doesn’t become a working product just because it’s a good idea. It has to travel through many steps: planning, breaking down, prioritizing, refining, implementing, testing, adjusting. I learned that progress depends on structure, and structure is what keeps the team, and my own mind, from drowning in chaos.
+An idea doesn’t become a working product just because it’s a good idea. It has to travel through many steps: planning, breaking down, prioritizing, refining, implementing, testing, adjusting. 
+
+I learned that progress depends on structure, and structure is what keeps the team, and my own mind, from drowning in chaos.
 
 ## A year of studying
 
@@ -34,7 +36,7 @@ Outside of work, 2025 was study-heavy.
 
 I studied math. I studied programming languages more deeply. And I studied for a college entrance exam.
 
-It wasn’t just “a bit of studying,” either it was a huge portion of my year. Some days felt like I had two full-time jobs: work during the day, preparation at night, repeating that cycle until weekends stopped feeling like weekends.
+It wasn’t just “a bit of studying,” either it was a huge portion of my year. Some days felt like I had two full-time jobs: work during the day, preparation at night.
 
 So… what did I get out of it?
 
@@ -74,7 +76,7 @@ That step mattered. It taught me that asking for support isn’t weakness. It’
 
 It also gave me problems that taught me lessons I needed.
 
-I became a developer in practice. I proved to myself I can study hard and reach a goal that once felt far away. And I faced a lot of anxiety.
+I became a developer. I proved to myself I can study hard and reach a goal that once felt far away. And I faced a lot of anxiety.
 
 For 2026, I have one goal.
 

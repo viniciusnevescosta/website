@@ -1,6 +1,6 @@
 ---
 title: "People's Park"
-description: "My first experience with digital photography at People’s Park."
+description: "My first experience with a digital camera at People’s Park."
 date: 2025-04-15
 collectionURL: "https://unsplash.com/collections/ycRKp-hebCo/2025-04-people-park"
 photos:

@@ -16,14 +16,11 @@ Instagram was the biggest one for me.
 
 Whenever I opened the app, I felt like I was supposed to behave in a certain way, like there was a social script I had to follow:
 
-<div>
-<li>Post photos constantly;</li>
-<li>Share everything in Stories;</li>
-<li>Show what I’m doing;</li>
-<li>Post what music I’m listening to;</li>
-<li>Get more followers;</li>
-<li>Like generic things so I stay “present”.</li>
-</div>
+- Post photos constantly;
+- Share everything in Stories;
+- Post what music I’m listening to;
+- Get more followers;
+- Like generic things so I stay “present”.
 
 Even when I wasn’t doing any of that, the pressure was still there. It felt like the platform was quietly pushing me toward performance.
 
@@ -51,10 +48,9 @@ I would check it constantly. A quick look would turn into another post, then ano
 
 Right now, I only kept a few—and with clear boundaries:
 
-<div>
-<li>LinkedIn: I only log in to update my professional information;</li>
-<li>GitHub (for now): it has some social mechanics, but I use it to contribute to open source and publish my projects;</li>
-<li>YouTube: I follow creators I consider more organic. Videos take longer to come out, but they’re usually higher quality and a good starting point to learn something new;</li>
+- LinkedIn: I only log in to update my professional information;
+- GitHub (for now): it has some social mechanics, but I use it to contribute to open source and publish my projects;
+- YouTube: I follow creators I consider more organic. Videos take longer to come out, but they’re usually higher quality and a good starting point to learn something new;
 
 ## The result: less anxiety, more peace
 
