@@ -1,6 +1,6 @@
 ---
 title: Thoughts about 2025
-description: The year I learned to slow down
+description: The year I learned to slow down.
 date: Jan 01 2026
 ---
 
@@ -60,11 +60,11 @@ I was more irritable, more distracted, and more “in my head” than I wanted t
 
 So I had to learn how to calm down in real, practical ways, not just motivational advice.
 
-One of the best decisions I [made was taking a trip in the middle of the year](https://viniciusnevescosta.com/photos/guararema), during my vacation, to the countryside. Slowing down for a while helped me breathe again.
+One of the best decisions I [made was taking a trip in the middle of the year](/photos/guararema), during my vacation, to the countryside. Slowing down for a while helped me breathe again.
 
 Another change was simpler but powerful: I started going for walks every morning. Nothing extreme, just consistent movement, fresh air, and time to be with my thoughts without screens or deadlines.
 
-[I deleted my social media accounts](https://viniciusnevescosta.com/blog/i-deleted-all-my-social-media-accounts) and I picked up photography as a new hobby.
+[I deleted my social media accounts](/blog/i-deleted-all-my-social-media-accounts) and I picked up photography as a new hobby.
 
 But most importantly, I sought professional help.
 

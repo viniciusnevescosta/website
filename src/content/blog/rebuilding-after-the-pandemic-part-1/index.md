@@ -10,7 +10,7 @@ In fact, that year took me from a post-pandemic slump to an **award-winning proj
 
 This post is **Part 1** of two stories from that year. Here, I’ll talk about my post-pandemic slump, what it did to me, and how I turned things around through a ridiculously ambitious project that ended up being recognized and awarded.
 
-**Part 2** will be about executing my final course project.
+[**Part 2**]() will be about executing my final course project.
 
 ## The ETEC dream
 
@@ -77,7 +77,7 @@ I started watching the recorded classes I had ignored. I took free online course
 
 More importantly, I learned something I wish I’d understood earlier:
 
-**Good habits pay you back.**
+**Effort pays you back.**
 
 It wasn’t always fun, and it wasn’t always easy—but little by little, I got that feeling of progress back. The *I’m building something* feeling.
 
@@ -163,4 +163,4 @@ But it always pays you back.
 
 ### References
 
-Repo: https://github.com/Criptphy
+1. [Technical overview](/projects/criptphy)
