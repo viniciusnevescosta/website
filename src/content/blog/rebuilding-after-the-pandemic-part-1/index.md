@@ -10,7 +10,7 @@ In fact, that year took me from a post-pandemic slump to an **award-winning proj
 
 This post is **Part 1** of two stories from that year. Here, I’ll talk about my post-pandemic slump, what it did to me, and how I turned things around through a ridiculously ambitious project that ended up being recognized and awarded.
 
-[**Part 2**]() will be about executing my final course project.
+[**Part 2**](/blog/rebuilding-after-the-pandemic-part-2) will be about executing my final course project.
 
 ## The ETEC dream
 
@@ -145,22 +145,27 @@ And we received a **Kindle** as a prize.
 
 It wasn’t just a trophy moment. It was proof—proof that all those nights of studying, all those boring days where discipline mattered more than motivation, had built something inside me.
 
-## The lesson I keep coming back to
+## The lesson I was missing
 
-None of this would have happened if I hadn’t made that decision back in 2021:
+Winning 2nd place wasn’t the point.
 
-to sit down, stop running from discomfort, and start building a future I actually wanted.
+The point was realizing that I could come back—that discipline wasn’t “gone”, it was just buried under comfort, fear, and routine.
 
-I like to revisit this story for one reason:
+That project proved something simple but powerful:
 
-**Effort pays you back.**
+I wasn’t stuck. I was just untrained again.
 
-Sometimes with skills. Sometimes with confidence. Sometimes with recognition.
+And once I started putting in the work consistently, things moved—skills, confidence, momentum.
 
-But it always pays you back.
+But 2022 wasn’t done teaching me.
+
+Because right after that… came the biggest challenge of the entire course: my final project.
+
+And that’s what [Part 2](/blog/rebuilding-after-the-pandemic-part-2) is about.
 
 ---
 
 ### References
 
 1. [Technical overview](/projects/criptphy)
+2. [Instagram](https://www.instagram.com/criptphy)

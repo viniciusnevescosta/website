@@ -1,5 +1,5 @@
 ---
-title: Criptphy - Password Manager
+title: Criptphy — Password Manager
 description: A school project built for the Ideias de Futuro challenge.
 date: 2022-04-01
 repoURL: https://github.com/Criptphy/Criptphy
@@ -66,8 +66,9 @@ At the end of the event:
 ![[about.png]]
 <p style="text-align: center;">Landing Page: About section.</p>
 
-## Links
+---
 
-- [Front-end](https://github.com/Criptphy/Criptphy)
-- [Back-end](https://github.com/Criptphy/backend)
-- [Instagram](https://www.instagram.com/criptphy)
+### References
+
+1. [Front-end](https://github.com/Criptphy/Criptphy)
+2. [Back-end](https://github.com/Criptphy/backend)

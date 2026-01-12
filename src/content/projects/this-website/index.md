@@ -1,7 +1,7 @@
 ---
 title: This website
 description: The story behind my personal website and why I keep coming back to it.
-date: Sep 26 2025
+date: Jan 01 2026
 demoURL: https://viniciusnevescosta.com
 repoURL: https://github.com/viniciusnevescosta/website
 ---
