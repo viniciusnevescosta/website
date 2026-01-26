@@ -25,6 +25,8 @@
     "eslint-plugin-astro": "^0.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "marked": "^16.4.2",
+    "mermaid": "^11.12.2",
+    "nanoid": "^5.1.6",
     "sharp": "^0.33.5",
     "tailwind-merge": "^2.6.0",
     "tailwindcss": "4.1.11",
