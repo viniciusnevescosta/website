@@ -86,7 +86,7 @@ This is why I pay attention to the boring compatibility work: not the headlines,
 
 Wine’s Wayland driver work is a good example. The goal is to make “Windows apps on Wayland” a first-class path, not something that relies on legacy X11 behavior. When that upstream work matures, it reduces the amount of X11 surface area Linux desktops still need to keep around for compatibility.<sup>[27](https://www.collabora.com/news-and-blog/news-and-events/wine-on-wayland-a-year-in-review-and-a-look-ahead.html)</sup>
 
-On the gaming side, SteamOS being treated as a product line matters too—not because everyone will run SteamOS, but because it forces investment into Linux gaming as a first-class experience. When gaming and mainstream app delivery both get easier, Linux adoption stops being “a switch” and starts being “an option.”<sup>[28](https://store.steampowered.com/steamos/)</sup>
+On the gaming side, SteamOS being treated as a product line matters too—not because everyone will run SteamOS, but because it forces investment into Linux gaming as a first-class experience. When gaming and mainstream app delivery both get easier, Linux adoption starts being a great option.<sup>[28](https://store.steampowered.com/steamos/)</sup>
 
 A big reason that “option” feels real now is Proton. Proton itself is just the delivery mechanism; under the hood it’s a stack of translation layers and fixes that keep getting hammered into shape by real users at scale.<sup>[29](https://github.com/ValveSoftware/Proton)</sup>
 
@@ -94,9 +94,9 @@ But there’s one compatibility cliff that turns this into a very non-philosophi
 
 A lot of competitive multiplayer games rely on anti-cheat systems designed around deep Windows integration, including kernel-level drivers. Call of Duty’s RICOCHET, for example, explicitly uses a PC kernel-level driver as part of its approach.<sup>[30](https://support.activision.com/no/articles/ricochet-overview)</sup> In that world, it’s common for a game to run perfectly well under Proton—until matchmaking is blocked, the client is kicked, or the anti-cheat refuses to initialize.
 
-The frustrating part is that the ecosystem already has “this can work” pathways. Epic introduced Easy Anti-Cheat support for Linux, but enabling it is ultimately a developer or publisher choice.<sup>[31](https://onlineservices.epicgames.com/en-US/news/epic-online-services-launches-anti-cheat-support-for-linux-mac-and-steam-deck)</sup> BattlEye has a similar story: Proton support exists, but it’s opt-in per game.<sup>[32](https://www.phoronix.com/news/BattlEye-Proton-Steam-Deck)</sup> So you end up with a strange middle ground where compatibility is technically possible, culturally inconsistent, and commercially uncertain.
+The frustrating part is that the ecosystem already has a workable pathway. Epic introduced Easy Anti-Cheat support for Linux, but enabling it is ultimately a developer or publisher choice.<sup>[31](https://onlineservices.epicgames.com/en-US/news/epic-online-services-launches-anti-cheat-support-for-linux-mac-and-steam-deck)</sup> BattlEye has a similar story: Proton support exists, but it’s opt-in per game.<sup>[32](https://www.phoronix.com/news/BattlEye-Proton-Steam-Deck)</sup> So you end up with a strange middle ground where compatibility is technically possible, culturally inconsistent, and commercially uncertain.
 
-This is why the discussion is hard: the incentives don’t line up cleanly. Studios don’t want to expand their attack surface for a relatively small slice of the player base with full control over your system, and players don’t want to adopt a platform that locks them out of their most-played competitive titles.
+This is why the discussion is hard: the incentives don’t line up cleanly. Studios don’t want to expand their attack surface for a relatively small slice of player base with full control over your system, and players don’t want to adopt a platform that locks them out of their most-played competitive titles.
 
 So yeah: it’s a chicken-and-egg problem. Companies are more likely to take Linux seriously when it’s a meaningful chunk of their revenue. But Linux only becomes a meaningful chunk of revenue if more people decide to use it anyway—even knowing that not every favorite game or app will work 100% on day one. That early tolerance is how market share grows.
 
@@ -124,13 +124,13 @@ From a business perspective, this kind of bundling can be attractive even before
 
 HDR belongs here, because it’s one of those features that exposes whether a desktop stack is actually modern.
 
-HDR on Linux has historically been blocked less by “lack of interest” and more by missing standard plumbing: compositors need color management, clients need a way to describe their content, and the protocol layer needs to carry that information consistently.
+HDR on Linux has historically been blocked by missing standard plumbing: compositors need color management, clients need a way to describe their content, and the protocol layer needs to carry that information consistently.
 
 A big inflection point is that Wayland’s color management work finally landed upstream: the `color-management-v1` protocol was reported as merged to upstream Wayland protocols in early 2025 after years of work.<sup>[39](https://www.phoronix.com/news/Wayland-CM-HDR-Merged) </sup><sup>[40](https://www.collabora.com/news-and-blog/news-and-events/12-years-of-incubating-wayland-color-management.html)</sup>
 
 From there, you start seeing user-facing desktop progress. GNOME 48 explicitly calls out the initial introduction of system-level HDR support, enabling HDR output for apps that support it.<sup>[41](https://release.gnome.org/48/)</sup> KDE’s KWin work has also been documented publicly in detail, including practical aspects like brightness behavior and the constraints imposed by protocol maturity.<sup>[42](https://zamundaaa.github.io/wayland/2024/05/11/more-hdr-and-color.html)</sup>
 
-Another “quiet but important” development is System76’s COSMIC desktop environment, because it represents a serious attempt to modernize the Linux desktop stack end-to-end. COSMIC is Wayland-native and written in Rust, with its own toolkit (libcosmic with Iced-based UI stack) and a dedicated compositor, and System76 positions it as something you can use beyond Pop!_OS as well.<sup>[43](https://system76.com/cosmic)</sup>
+Another important development is System76’s COSMIC desktop environment, because it represents a serious attempt to modernize the Linux desktop stack end-to-end. COSMIC is Wayland-native and written in Rust, with its own toolkit (libcosmic with Iced-based UI stack) and a dedicated compositor, and System76 positions it as something you can use beyond Pop!_OS as well.<sup>[43](https://system76.com/cosmic)</sup>
 
 This matters for the same reason HDR matters: features like color management, input, window management, and security properties are increasingly constrained by the assumptions baked into the compositor, toolkit and desktop shell layer. COSMIC is being developed as a cohesive stack, and it shipped as COSMIC Epoch 1 in Pop!_OS 24.04, with ongoing point releases and public tracking of compositor and shell changes.<sup>[44](https://github.com/pop-os/cosmic-epoch) </sup><sup>[45](https://blog.system76.com/post/cosmic-epoch-1-updates/)</sup>
 
