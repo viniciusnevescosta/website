@@ -22,6 +22,9 @@ One reason AMD and Intel often feel “easy” on Linux is simple: their graphic
 
 Nvidia has historically been harder because the stack has been split across two paths.
 
+![[1.svg]]
+<p style="text-align: center;">Fragmented past stack.</p>
+
 On one side there’s the community stack (Nouveau + Mesa), where the kernel driver and Mesa drivers are developed in the open and integrate naturally with the upstream graphics stack. 
 
 On the other side there’s the proprietary Nvidia driver, where kernel modules and the userspace OpenGL, Vulkan and EGL implementation are delivered as a vendor stack, and historically have lagged or diverged on integration points that matter on modern Linux desktops.<sup>[7](https://docs.kernel.org/gpu/nouveau.html) </sup><sup>[8](https://www.Nvidia.com/en-us/drivers/details/224751/)</sup>
@@ -45,6 +48,9 @@ Nova is a new upstream Linux kernel driver project for Nvidia GPUs that use the 
 Why this matters is straightforward: NVK and Zink live in userspace (Mesa), but they still depend on a functional kernel DRM driver for memory management, command supmission, display, and synchronization. Today that kernel foundation is generally Nouveau on the open stack; longer-term, Nova is the path aimed at being the modern upstream kernel foundation for newer Nvidia generations using GSP. 
 
 That is how “NVK + Zink” can eventually sit on top of a kernel driver that is designed for the modern firmware model and developed upstream alongside the rest of Linux graphics.<sup>[12](https://docs.kernel.org/gpu/nouveau.html) </sup><sup>[13](https://docs.kernel.org/gpu/nova/index.html)</sup>
+
+![[2.svg]]
+<p style="text-align: center;">Unified modern stack.</p>
 
 Meanwhile, on the proprietary side, Nvidia has also been addressing some of the most visible Wayland pain points. The R555 driver series added support for the `linux-drm-syncobj-v1` Wayland explicit sync protocol, which is one of the missing pieces that historically contributed to stutter, flicker and timing issues on some Wayland setups.<sup>[14](https://www.Nvidia.com/en-us/drivers/details/224751/) </sup><sup>[15](https://www.phoronix.com/news/Nvidia-555.58-Linux-Driver)</sup>
 
@@ -160,4 +166,4 @@ None of this is meant to imply that not using Linux is a problem, or that Linux 
 
 The point is choice. If the platform keeps getting more predictable and more mature, Linux becomes an easier recommendation for the people who want it—and a genuinely solid decision for the people who decide it fits their work, their hardware, and their preferences.
 
-> I enjoyed writing this article so much that I'm now considering writing another one about the year of Mac gaming, lol
+> I enjoyed writing this article so much that I'm now considering writing another one about the year of Mac gaming, lol.
