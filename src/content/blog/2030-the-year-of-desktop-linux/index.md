@@ -60,7 +60,11 @@ DirectX 12 games on Linux usually run through Proton using VKD3D-Proton, which t
 
 What’s relevant here is that there are signs Nvidia is actively targeting “general” improvements for D3D12 and VKD3D workloads on Linux, rather than only one-off game fixes, which is exactly the kind of work that can move the baseline instead of just patching symptoms.<sup>[17](https://www.gamingonlinux.com/2025/08/Nvidia-are-working-on-a-general-optimization-for-vkd3d-directx12-games-on-linux/)</sup>
 
-And this matters because Nvidia isn’t a niche vendor in the gaming world—it’s still the default GPU choice for a huge portion of Steam users. If the Linux experience becomes smoother on the hardware people already own, the adoption story changes. <sup>[18](https://store.steampowered.com/hwsurvey/Steam-Hardware-Software-Survey-Welcome-to-Steam)</sup>
+And this matters because Nvidia isn’t a niche vendor in the gaming world—it’s still the default GPU choice for a huge portion of Steam users.  <sup>[18](https://store.steampowered.com/hwsurvey/Steam-Hardware-Software-Survey-Welcome-to-Steam)</sup>
+
+Most of these users will never learn what NVK, Zink, or Nova are—and they shouldn’t have to. The only metric that matters is the experience: you launch a game, you launch an app, you alt-tab, you drag a window across monitors, and nothing weird happens. 
+
+If the Linux experience becomes smoother on the hardware people already own, the adoption story changes.
 
 ## Wayland becomes the baseline
 
