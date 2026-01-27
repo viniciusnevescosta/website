@@ -58,7 +58,7 @@ There’s also a second category of problems that matters specifically for Linux
 
 DirectX 12 games on Linux usually run through Proton using `VKD3D-Proton`, which translates `D3D12` calls to Vulkan. When performance is worse on Nvidia than expected, or when certain `D3D12` titles regress, the cause is often a messy interaction between translation-layer assumptions and driver behavior. Nvidia users have been reporting these issues publicly for a while, including performance complaints in Nvidia’s own Linux forums.<sup>[16](https://forums.developer.Nvidia.com/t/directx12-performance-is-terrible-on-linux/303207)</sup>
 
-What’s relevant here is that there are signs Nvidia is actively targeting general improvements for D3D12 and VKD3D workloads on Linux, rather than only one-off game fixes, which is exactly the kind of work that can move the baseline instead of just patching symptoms.<sup>[17](https://www.gamingonlinux.com/2025/08/nvidia-are-working-on-a-general-optimization-for-vkd3d-directx12-games-on-linux/)</sup>
+What’s relevant here is that there are signs Nvidia is actively targeting general improvements for `D3D12` and `VKD3D` workloads on Linux, rather than only one-off game fixes, which is exactly the kind of work that can move the baseline instead of just patching symptoms.<sup>[17](https://www.gamingonlinux.com/2025/08/nvidia-are-working-on-a-general-optimization-for-vkd3d-directx12-games-on-linux/)</sup>
 
 And this matters because Nvidia isn’t a niche vendor in the gaming world—it’s still the default GPU choice for a huge portion of Steam users.<sup>[18](https://store.steampowered.com/hwsurvey/Steam-Hardware-Software-Survey-Welcome-to-Steam)</sup>
 
@@ -160,18 +160,14 @@ And the direction is clearly toward Flathub becoming a place where money can mov
 
 ## Will 2030 actually be “the year”?
 
-The "Year of the Linux Desktop" has been a running joke for two decades because it always implied a sudden, magical flip in market share. But looking at the roadmap I’ve outlined—from the unification of the Nvidia stack to the maturing of Wayland protocols—2030 doesn't look like a magic trick. It looks like a convergence point.
+The 'Year of the Linux Desktop' has always been a joke about winning the market. But 2030 isn't about winning; it's about functioning. The roadmap doesn't show a magical flip in the charts. It shows something more important: the moment where the unified Nvidia stack and Wayland protocols finally make the OS boring enough to just use.
 
-This is where the timeline matters. By 2030, projects like Nova and the unified GSP firmware won't just be experimental branches; they will be the default LTS standard. The anti-cheat battles maybe will likely have shifted from client-side kernel wars to server-side validation. The fragmentation we complain about today will have largely settled into a coherent platform definition via Flatpak and Portals.
+This is where the timeline matters. By 2030, projects like Nova and the unified GSP firmware won't just be experimental branches; they will be the default LTS standard. The anti-cheat battles will likely have shifted from client-side kernel wars to server-side validation or market dynamics will finally force developers to recognize the platform not as a niche, but as a revenue stream, and the fragmentation we complain about today will have largely settled into a coherent platform definition via Flatpak, Portals and Freedesktop.
 
 I mentioned at the start that I bought a Mac in 2023 because it solved the friction of daily life. That is the real metric.
 
-The Linux desktop doesn't need to destroy Windows or replace macOS to win. It just needs to stop punishing the people who choose it. It needs to reach a point where the trade-off for freedom isn't stability, but simply preference.
+Linux desktop doesn't need to destroy Windows or replace macOS to win. It just needs to stop punishing the people who choose it. It needs to reach a point where the trade-off for freedom isn't stability, but simply preference.
 
-If these engineering trends compound as they are doing now, 2030 marks the invisible threshold where that friction finally disappears.
-
-The victory won't look like 50% market share. It will look like something much quieter: it will be the year where installing Linux stops feeling like a brave political statement or a hobbyist experiment, and starts feeling like just buying a computer.
-
-That is the only year of the Linux desktop that actually matters.
+The victory won't look like 50% market share. It will look like something much quieter: it will be the year where installing Linux stops feeling like a brave political statement or a hobbyist experiment—and starts feeling like just buying a new computer.
 
 > I enjoyed writing this article so much that I'm now considering writing another one about the year of Mac gaming, lol.
