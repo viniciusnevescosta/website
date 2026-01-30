@@ -17,7 +17,7 @@ I decided to share the link on the [r/linux](https://www.reddit.com/r/linux/) su
 Fast forward to today, and the post is closing in on 100k views and nearing 200 comments.
 
 ![[graphics.png]]
-<p style="text-align: center;">Some insights about the post on Reddit.</p>
+<p style="text-align: center;">Insights about the post on Reddit.</p>
 
 The influx was so sudden that it actually took my site down for a few hours. I completely blew past my hosting traffic limit. It was a bittersweet moment: a mix of "Yay, people are reading!" followed by "Oh no, nobody can read it anymore."
 
