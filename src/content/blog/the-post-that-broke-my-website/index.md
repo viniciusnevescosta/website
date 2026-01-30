@@ -21,7 +21,7 @@ Fast forward to today, and the post is closing in on 100k views and nearing 200 
 
 The influx was so sudden that it actually took my site down for a few hours. I completely blew past my hosting traffic limit. It was a bittersweet moment: a mix of "Yay, people are reading!" followed by "Oh no, nobody can read it anymore."
 
-I think the reaction was largely driven by the title I chose for Reddit: [_“Why desktop Linux can just feel normal by 2030.”_](https://www.reddit.com/r/linux/comments/1qosj0w/why_desktop_linux_could_just_feel_normal_by_2030/) It was a simple, innocent, yet clearly provocative title.
+I think the reaction was largely driven by the title I chose for Reddit: [_“Why desktop Linux could just feel normal by 2030.”_](https://www.reddit.com/r/linux/comments/1qosj0w/why_desktop_linux_could_just_feel_normal_by_2030/) It was a simple, innocent, yet clearly provocative title.
 
 A lot of people commented to say that Linux is _already_ normal today. And yes, I agree. It is normal for me, and likely for you reading this. Knowing what I know now, I might have chosen a title that made my idea clearer—perhaps emphasizing "frictionless" rather than just "normal"—to better reflect that I was talking about the experience for the average, non-technical consumer.
 
