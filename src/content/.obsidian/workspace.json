@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "projects/this-website/index.md",
+                "file": "blog/the-post-that-broke-my-website/index.md",
                 "mode": "source",
                 "source": false
               },
@@ -172,6 +172,10 @@
   },
   "active": "e643eb29369903bc",
   "lastOpenFiles": [
+    "blog/the-post-that-broke-my-website/graphics.png",
+    "projects/this-website/index.md",
+    "blog/the-post-that-broke-my-website/index.md",
+    "blog/the-post-that-broke-my-website",
     "blog/no-social-media",
     "blog/h",
     "blog/the-wireguard-protocol",
@@ -179,7 +183,6 @@
     "blog/why-i-decided-to-not-have-social-medias",
     "projects/this-website/obsidian.png",
     "blog/a-cool-phisolophy-about-software/example-code-screenshot.png",
-    "projects/this-website/index.md",
     "projects/this-website/my-first-page-2.png",
     "blog/a-cool-phisolophy-about-software/index.md",
     "projects/criptphy-password-manager",
@@ -191,7 +194,6 @@
     "projects/this-website/my-second-page.png",
     "projects/this-website/my-first-page.png",
     "Untitled.base",
-    "images/test.txt",
-    "images"
+    "images/test.txt"
   ]
 }
