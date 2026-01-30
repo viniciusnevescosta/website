@@ -1,6 +1,6 @@
 ---
 title: The post that broke my website
-description: How we took my final course project from messy ideas to a real product.
+description: How a Reddit post took down my website.
 date: Jan 30 2026
 ---
 
