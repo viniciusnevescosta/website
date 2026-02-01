@@ -29,6 +29,16 @@ However, despite the semantic debate, the main goal was achieved: to generate a 
 
 Thank you to everyone who read, commented, and engaged.
 
-Regarding what’s next: as I hinted before, I am planning a piece on Mac Gaming. I plan to tackle it with a technical deep dive—just like I did with Linux—and use that analysis to make some predictions. 
+Regarding what’s next: as I hinted before, I’m planning a piece on Mac gaming. And over the next few months, I want to explore a handful of other topics too—still in the same style: a technical deep dive first, and then some predictions based on what I find.
+
+Here are a few ideas currently on my list:
+- What if Windows became open source?
+- Web Applications
+- Linux and mobile
+- Storage
+- Modern cryptography
+- WireGuard
+
+This isn’t a strict roadmap and they're not in a sequential order, and other subjects may show up along the way. The common thread is simple: these are all topics I genuinely enjoy and want to dig into.
 
 It might take a little while to publish because my routine is currently packed with work and university, but stay tuned.

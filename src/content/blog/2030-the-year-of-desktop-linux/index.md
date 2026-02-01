@@ -162,7 +162,7 @@ And the direction is clearly toward Flathub becoming a place where money can mov
 
 The 'Year of the Linux Desktop' has always been a joke about winning the market. But 2030 isn't about winning; it's about functioning. The roadmap doesn't show a magical flip in the charts. It shows something more important: the moment where the unified Nvidia stack and Wayland protocols finally make the OS boring enough to just use.
 
-This is where the timeline matters. By 2030, projects like Nova and the unified GSP firmware won't just be experimental branches; they will be the default LTS standard. The anti-cheat battles will likely have shifted from client-side kernel wars to server-side validation or market dynamics will finally force developers to recognize the platform not as a niche, but as a revenue stream, and the fragmentation we complain about today will have largely settled into a coherent platform definition via Flatpak, Portals and Freedesktop.
+This is where the timeline matters. By 2030, projects like Nova and the unified GSP firmware won't just be experimental branches; they will be the default LTS standard. The anti-cheat battles will likely have shifted from client-side kernel wars to server-side validation or market dynamics will finally force developers to recognize the platform not as a niche, but as a revenue stream, and the fragmentation we complain about today will have largely settled into a coherent platform definition via Flatpak, Portals and FreeDesktop.
 
 I mentioned at the start that I bought a Mac in 2023 because it solved the friction of daily life. That is the real metric.
 
