@@ -5,7 +5,7 @@ date: 2022-12-01
 repoURL: https://github.com/FrogDevs
 ---
 
-Frog Developers was my final course project at ETEC, delivered for a real business: Equilíbrio Natural. Instead of treating the TCC like a fictional assignment, we scoped it like a real product and shipped a small suite of projects that covered both internal operations and customer-facing needs.
+Frog Developers was my final course project at ETEC, delivered for a real business: Equilíbrio Natural. Instead of treating the project like a fictional assignment, we scoped it like a real product and shipped a small suite of projects that covered both internal operations and customer-facing needs.
 
 The delivery included three projects:
 
@@ -56,7 +56,7 @@ A single-page website for customers with key business information, contact optio
 
 ### Team Website
 
-The official Frog Developers website, focused on presenting the team and the work delivered during the TCC.
+The official Frog Developers website, focused on presenting the team and the work delivered during the project.
 
 #### Highlights
 - Light/dark themes
