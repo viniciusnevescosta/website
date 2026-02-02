@@ -5,8 +5,6 @@ date: 2022-04-01
 repoURL: https://github.com/Criptphy/Criptphy
 ---
 
-## Overview
-
 Criptphy is a password manager prototype we built in 2022 for a civic-tech challenge promoted by Ideias de Futuro, in partnership with the São Paulo government and Google. The goal was to create a tech solution that could help people in the city—so we focused on a very real, very common problem:
 
 A lot of people reuse the same password across multiple accounts because it’s easy… until it isn’t.
@@ -28,15 +26,15 @@ This was a two-person team project:
 - Back-end: PHP;
 - Database: MySQL.
 
-## Architecture (high level)
+## Architecture
 
 Criptphy followed a straightforward split:
 
-- A static front-end (TypeScript compiled for the browser using Vite) responsible for the user experience
+- For the website we used: HTML, CSS and TypeScript;
 - A PHP back-end that handled data persistence and communication with MySQL
 - The front-end interacted with the back-end through HTTP requests (API-style integration)
 
-## Hosting (at the time)
+## Hosting
 
 During the event, we deployed the prototype like this:
 
