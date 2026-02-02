@@ -30,7 +30,7 @@ export const PHOTOS: Metadata = {
 export const SOCIALS: Socials = [
   { 
     NAME: "linkedin",
-    HREF: "https://www.linkedin.com/in/nevesco/",
+    HREF: "https://www.linkedin.com/in/viniciusnevescosta",
   },
   { 
     NAME: "github",
