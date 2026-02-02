@@ -39,6 +39,6 @@ Here are a few ideas currently on my list:
 - Modern cryptography
 - WireGuard
 
-This isn’t a strict roadmap and they're not in a sequential order, and other subjects may show up along the way. The common thread is simple: these are all topics I genuinely enjoy and want to dig into.
+These are all topics I genuinely enjoy and want to dig into. But, this isn’t a strict roadmap and they're not in a sequential order. Also, other subjects may show up along the way.
 
-It might take a little while to publish because my routine is currently packed with work and university, but stay tuned.
+It might take a little while to write and publish these topics because my routine is currently packed with work and university, but stay tuned.
