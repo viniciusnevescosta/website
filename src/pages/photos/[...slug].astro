@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry, getCollection, render } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import FormattedDate from "@components/FormattedDate.astro";
@@ -12,17 +12,17 @@ export async function getStaticPaths() {
     .filter(collection => !collection.data.draft)
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
   return collections.map((collection) => ({
-    params: { slug: collection.slug },
+    params: { slug: collection.id.replace(/\/index$/, '') },
     props: collection,
   }));
 }
 type Props = CollectionEntry<"photos">;
 
 const collection = Astro.props;
-const { Content } = await collection.render();
+const { Content } = await render(collection);
 ---
 
-<PageLayout title={collection.data.title} description={collection.data.description}>
+<PageLayout title={collection.data.title} description={collection.data.description} type="article" date={collection.data.date}>
   <Container>
     <div class="animate">
       <BackToPrev href="/photos">
@@ -60,7 +60,7 @@ const { Content } = await collection.render();
     </article>
 
     {collection.data.photos && collection.data.photos.length > 0 && (
-      <div id="photo-collection-root" data-collection-slug={collection.slug} class="animate space-y-6">
+      <div id="photo-collection-root" data-collection-slug={collection.id.replace(/\/index$/, '')} class="animate space-y-6">
         {collection.data.photos.map((photo, index) => (
           <div class="w-full">
             <button
@@ -84,7 +84,7 @@ const { Content } = await collection.render();
     <!-- Photo Viewer Component -->
     <PhotoViewer />
 
-    <script define:vars={{ photos: collection.data.photos, collectionSlug: collection.slug }}>
+    <script define:vars={{ photos: collection.data.photos, collectionSlug: collection.id.replace(/\/index$/, '') }}>
   // NOTE:
   // This page is navigated with Astro view transitions (client-side), so scripts from previous
   // photo pages may still be alive. We must ensure only the *current* collection can bind handlers.

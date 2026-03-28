@@ -7,6 +7,7 @@ dist/
 # dependencies
 node_modules/
 client/pnpm-lock.yaml
+bun.lock
 
 # logs
 npm-debug.log*

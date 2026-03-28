@@ -12,7 +12,7 @@ By the end of 2023 I bought my first Mac, and that did solve a lot of day-to-day
 
 I think that’s the part people miss when they reduce Linux desktop to a niche alternative. Once you get used to an ecosystem that builds in public, where the plumbing is discussed openly and you can see the tradeoffs, it’s hard not to keep checking back in.
 
-But most people don’t “choose an OS,” they just buy a computer. And yes—Linux on desktop is still small today. StatCounter’s desktop numbers are still low single digits for Linux; for example, December 2025 shows Linux at 3.86% worldwide.<sup>[4](https://gs.statcounter.com/os-market-share/desktop/worldwide/)</sup>
+But most people don’t “choose an OS,” they just buy a computer. And yes—Linux on desktop is still small today. StatCounter’s desktop numbers are still low single digits for Linux, for example, December 2025 shows Linux at 3.86% worldwide.<sup>[4](https://gs.statcounter.com/os-market-share/desktop/worldwide/)</sup>
 
 So here’s where I’m landing: I think 2030 is the first year where desktop Linux can realistically stop feeling like a hobbyist choice and start feeling like a normal choice. Not because one magical breakthrough happens, but because a bunch of important details are finally lining up.
 
@@ -45,7 +45,7 @@ Nova is a new upstream Linux kernel driver project for Nvidia GPUs that use the 
 
 `nova-core` provides the low-level firmware/hardware abstraction, and `nova-drm` is the DRM/KMS piece that plugs into the normal Linux graphics stack.<sup>[11](https://docs.kernel.org/gpu/nova/index.html)</sup>
 
-Why this matters is straightforward: NVK and Zink live in userspace (Mesa), but they still depend on a functional kernel DRM driver for memory management, command supmission, display, and synchronization. Today that kernel foundation is generally Nouveau on the open stack; longer-term, Nova is the path aimed at being the modern upstream kernel foundation for newer Nvidia generations using GSP. 
+Why this matters is straightforward: NVK and Zink live in userspace (Mesa), but they still depend on a functional kernel DRM driver for memory management, command supmission, display, and synchronization. Today that kernel foundation is generally Nouveau on the open stack, longer-term, Nova is the path aimed at being the modern upstream kernel foundation for newer Nvidia generations using GSP. 
 
 That is how NVK + Zink can eventually sit on top of a kernel driver that is designed for the modern firmware model and developed upstream alongside the rest of Linux graphics.<sup>[12](https://docs.kernel.org/gpu/nouveau.html) </sup><sup>[13](https://docs.kernel.org/gpu/nova/index.html)</sup>
 
@@ -160,9 +160,9 @@ And the direction is clearly toward Flathub becoming a place where money can mov
 
 ## Will 2030 actually be “the year”?
 
-The 'Year of the Linux Desktop' has always been a joke about winning the market. But 2030 isn't about winning; it's about functioning. The roadmap doesn't show a magical flip in the charts. It shows something more important: the moment where the unified Nvidia stack and Wayland protocols finally make the OS boring enough to just use.
+The 'Year of the Linux Desktop' has always been a joke about winning the market. But 2030 isn't about winning, it's about functioning. The roadmap doesn't show a magical flip in the charts. It shows something more important: the moment where the unified Nvidia stack and Wayland protocols finally make the OS boring enough to just use.
 
-This is where the timeline matters. By 2030, projects like Nova and the unified GSP firmware won't just be experimental branches; they will be the default LTS standard. The anti-cheat battles will likely have shifted from client-side kernel wars to server-side validation or market dynamics will finally force developers to recognize the platform not as a niche, but as a revenue stream, and the fragmentation we complain about today will have largely settled into a coherent platform definition via Flatpak, Portals and FreeDesktop.
+This is where the timeline matters. By 2030, projects like Nova and the unified GSP firmware won't just be experimental branches, they will be the default LTS standard. The anti-cheat battles will likely have shifted from client-side kernel wars to server-side validation or market dynamics will finally force developers to recognize the platform not as a niche, but as a revenue stream, and the fragmentation we complain about today will have largely settled into a coherent platform definition via Flatpak, Portals and FreeDesktop.
 
 I mentioned at the start that I bought a Mac in 2023 because it solved the friction of daily life. That is the real metric.
 

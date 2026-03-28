@@ -27,7 +27,7 @@ export async function GET(context: Context) {
     description: HOME.DESCRIPTION,
     site: context.site,
     items: await Promise.all(items.map(async (item) => {
-      let content = item.body;
+      let content = item.body ?? '';
       
       // Process Obsidian-style images: ![[image.png]] -> ![alt](./image.png)
       content = content.replace(/!\[\[([^\]]+)\]\]/g, (_match, filename) => {
@@ -50,8 +50,9 @@ export async function GET(context: Context) {
         /<img([^>]*?)src="\.\/([^"]+)"([^>]*?)>/g, 
         (_match, before, filename, after) => {
           // Check if the image exists in the content directory
-          const imagePath = path.join(process.cwd(), 'src', 'content', item.collection, item.slug, filename);
-          const publicImagePath = path.join(process.cwd(), 'dist', item.collection, item.slug, filename);
+          const entrySlug = item.id.replace(/\/index$/, '');
+          const imagePath = path.join(process.cwd(), 'src', 'content', item.collection, entrySlug, filename);
+          const publicImagePath = path.join(process.cwd(), 'dist', item.collection, entrySlug, filename);
           
           try {
             // Copy the image to the public directory if it exists
@@ -68,7 +69,7 @@ export async function GET(context: Context) {
               }
               
               // Return the img tag with absolute URL
-              const imageUrl = `${siteUrl.replace(/\/$/, '')}/${item.collection}/${item.slug}/${filename}`;
+              const imageUrl = `${siteUrl.replace(/\/$/, '')}/${item.collection}/${entrySlug}/${filename}`;
               return `<img${before}src="${imageUrl}"${after}>`;
             }
           } catch (error) {
@@ -99,7 +100,7 @@ export async function GET(context: Context) {
         description: item.data.description,
         content: htmlContent,
         pubDate: item.data.date,
-        link: `/${item.collection}/${item.slug}/`,
+        link: `/${item.collection}/${item.id.replace(/\/index$/, '')}/`,
       };
     })),
   });

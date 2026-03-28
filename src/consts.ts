@@ -8,23 +8,23 @@ export const SITE: Site = {
 };
 
 export const HOME: Metadata = {
-  TITLE: "Home",
-  DESCRIPTION: "My blog and portfolio.",
+  TITLE: "Web Developer & CS Student",
+  DESCRIPTION: "Web developer and computer engineering student. I write about software development, Linux, and technology. I also share personal projects and photography.",
 };
 
 export const BLOG: Metadata = {
   TITLE: "Blog",
-  DESCRIPTION: "A collection of articles on topics I am passionate about.",
+  DESCRIPTION: "Articles about software development, Linux, technology, and personal reflections by Vinícius Costa.",
 };
 
 export const PROJECTS: Metadata = {
   TITLE: "Projects",
-  DESCRIPTION: "A collection of my projects, with links to repositories and demos.",
+  DESCRIPTION: "Open-source and personal projects by Vinícius Costa — web apps, tools, and experiments, with links to live demos and source code.",
 };
 
 export const PHOTOS: Metadata = {
   TITLE: "Photos",
-  DESCRIPTION: "A collection of my photography organized by themes and locations.",
+  DESCRIPTION: "Photography by Vinícius Costa — collections organized by locations and themes across Brazil and beyond.",
 };
 
 export const SOCIALS: Socials = [

@@ -15,41 +15,89 @@ import { SITE } from "@consts";
 interface Props {
   title: string;
   description: string;
+  /** Absolute path or URL to the OG image. Defaults to the site icon. */
   image?: string;
+  /** "article" for blog posts and projects, "website" for everything else. */
+  type?: "website" | "article";
+  /** Publication date — used for article:published_time. */
+  date?: Date;
+  /** Override the author name shown in article meta and JSON-LD. */
+  author?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = "/nano.png" } = Astro.props;
+const {
+  title,
+  description,
+  // NOTE: replace /favicon/android-chrome-512x512.png with a proper
+  // 1200×630 OG image (e.g. /og.png) once you have one.
+  image = "/favicon/android-chrome-512x512.png",
+  type = "website",
+  date,
+  author = SITE.NAME,
+} = Astro.props;
+
+const ogImageURL = new URL(image, Astro.site).href;
+
+// ── JSON-LD ──────────────────────────────────────────────────────────────────
+const jsonLd =
+  type === "article"
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: title,
+        description,
+        image: ogImageURL,
+        url: canonicalURL.href,
+        datePublished: date?.toISOString(),
+        author: {
+          "@type": "Person",
+          name: author,
+          url: Astro.site?.href,
+        },
+        publisher: {
+          "@type": "Person",
+          name: SITE.NAME,
+          url: Astro.site?.href,
+        },
+      }
+    : {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: SITE.NAME,
+        url: Astro.site?.href,
+        description,
+      };
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" href="/favicon/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/favicon/android-chrome-512x512.png">
-<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="icon" href="/favicon/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon/android-chrome-512x512.png" />
+<link rel="manifest" href="/favicon/site.webmanifest" />
 <meta name="msvalidate.01" content="7F3D17F56474B193FC9860226F33CB99" />
 
 <!-- Mobile Meta Tags -->
-<meta name="theme-color" content="#000000">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content={SITE.NAME}>
-<meta name="msapplication-TileImage" content="/favicon/android-chrome-192x192.png">
-<meta name="msapplication-TileColor" content="#000000">
+<meta name="theme-color" content="#000000" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content={SITE.NAME} />
+<meta name="msapplication-TileImage" content="/favicon/android-chrome-192x192.png" />
+<meta name="msapplication-TileColor" content="#000000" />
 
 <meta name="generator" content={Astro.generator} />
 
 <!-- Font preloads -->
-<link rel="preload" href={inter400} as="font" type="font/woff2" crossorigin/>
-<link rel="preload" href={inter600} as="font" type="font/woff2" crossorigin/>
-<link rel="preload" href={lora400} as="font" type="font/woff2" crossorigin/>
-<link rel="preload" href={lora600} as="font" type="font/woff2" crossorigin/>
+<link rel="preload" href={inter400} as="font" type="font/woff2" crossorigin />
+<link rel="preload" href={inter600} as="font" type="font/woff2" crossorigin />
+<link rel="preload" href={lora400} as="font" type="font/woff2" crossorigin />
+<link rel="preload" href={lora600} as="font" type="font/woff2" crossorigin />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -58,32 +106,55 @@ const { title, description, image = "/nano.png" } = Astro.props;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="author" content={author} />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<!-- Open Graph -->
+<meta property="og:type" content={type} />
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content={SITE.NAME} />
+<meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={ogImageURL} />
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:alt" content={title} />
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<!-- Article-specific Open Graph -->
+{type === "article" && date && (
+  <meta property="article:published_time" content={date.toISOString()} />
+)}
+{type === "article" && (
+  <meta property="article:author" content={author} />
+)}
 
-<ClientRouter  />
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalURL} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageURL} />
+<meta name="twitter:image:alt" content={title} />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+<ClientRouter />
 
 <!-- RSS Link -->
-<link rel="alternate" type="application/rss+xml" title={SITE.NAME} href={new URL("rss.xml", Astro.site)} />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title={SITE.NAME}
+  href={new URL("rss.xml", Astro.site)}
+/>
 
 <script>
   import type { TransitionBeforeSwapEvent } from "astro:transitions/client";
   document.addEventListener("astro:before-swap", (e) =>
     [
       ...(e as TransitionBeforeSwapEvent).newDocument.head.querySelectorAll(
-        "link[as=\"font\"]"
+        'link[as="font"]'
       ),
     ].forEach((link) => link.remove())
   );
@@ -119,13 +190,13 @@ const { title, description, image = "/nano.png" } = Astro.props;
       toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
     });
 
-    window.matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", event => {
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (event) => {
         if (localStorage.theme === "system" || !localStorage.theme) {
           toggleTheme(event.matches);
         }
-      }
-    );
+      });
 
     document.addEventListener("scroll", onScroll);
   }
@@ -152,23 +223,22 @@ const { title, description, image = "/nano.png" } = Astro.props;
     event.preventDefault();
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   }
 
-function toggleTheme(dark) {
+  function toggleTheme(dark) {
     const css = document.createElement("style");
 
     css.appendChild(
       document.createTextNode(
         `* {
-             -webkit-transition: none !important;
-             -moz-transition: none !important;
-             -o-transition: none !important;
-             -ms-transition: none !important;
-             transition: none !important;
-          }
-        `,
+           -webkit-transition: none !important;
+           -moz-transition: none !important;
+           -o-transition: none !important;
+           -ms-transition: none !important;
+           transition: none !important;
+         }`
       )
     );
 
@@ -180,7 +250,7 @@ function toggleTheme(dark) {
       document.documentElement.classList.remove("dark");
     }
 
-  window.getComputedStyle(css).opacity;
+    window.getComputedStyle(css).opacity;
     document.head.removeChild(css);
   }
 
