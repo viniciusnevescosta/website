@@ -59,9 +59,11 @@ At the end of the event:
 ## Media
 
 ![[hero.png]]
+
 <p style="text-align: center;">Landing Page: Hero section.</p>
 
 ![[about.png]]
+
 <p style="text-align: center;">Landing Page: About section.</p>
 
 ---

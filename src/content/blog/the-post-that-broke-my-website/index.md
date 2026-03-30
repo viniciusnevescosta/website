@@ -17,6 +17,7 @@ I decided to share the link on the [r/linux](https://www.reddit.com/r/linux/) su
 Fast forward to today, and the post is closing in on 100k views and nearing 200 comments.
 
 ![[graphics.png]]
+
 <p style="text-align: center;">Insights about the post on Reddit.</p>
 
 The influx was so sudden that it actually took my site down for a few hours. I completely blew past my hosting traffic limit. It was a bittersweet moment: a mix of "Yay, people are reading!" followed by "Oh no, nobody can read it anymore."
@@ -32,6 +33,7 @@ Thank you to everyone who read, commented, and engaged.
 Regarding what’s next: as I hinted before, I’m planning a piece on Mac gaming. And over the next few months, I want to explore a handful of other topics too—still in the same style: a technical deep dive first, and then some predictions based on what I find.
 
 Here are a few ideas currently on my list:
+
 - What if Windows became open source?
 - Web Applications
 - Linux and mobile

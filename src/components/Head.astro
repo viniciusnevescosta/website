@@ -1,15 +1,6 @@
 ---
 import "../styles/global.css";
-import "@fontsource/inter/latin-400.css";
-import "@fontsource/inter/latin-600.css";
-import "@fontsource/lora/400.css";
-import "@fontsource/lora/600.css";
-import inter400 from "@fontsource/inter/files/inter-latin-400-normal.woff2";
-import inter600 from "@fontsource/inter/files/inter-latin-600-normal.woff2";
-import lora400 from "@fontsource/lora/files/lora-latin-400-normal.woff2";
-import lora600 from "@fontsource/lora/files/lora-latin-600-normal.woff2";
-
-import { ClientRouter } from "astro:transitions";
+import { Font } from "astro:assets";
 import { SITE } from "@consts";
 
 interface Props {
@@ -30,8 +21,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const {
   title,
   description,
-  // NOTE: replace /favicon/android-chrome-512x512.png with a proper
-  // 1200×630 OG image (e.g. /og.png) once you have one.
   image = "/favicon/android-chrome-512x512.png",
   type = "website",
   date,
@@ -40,7 +29,6 @@ const {
 
 const ogImageURL = new URL(image, Astro.site).href;
 
-// ── JSON-LD ──────────────────────────────────────────────────────────────────
 const jsonLd =
   type === "article"
     ? {
@@ -71,7 +59,6 @@ const jsonLd =
       };
 ---
 
-<!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
@@ -83,32 +70,24 @@ const jsonLd =
 <link rel="manifest" href="/favicon/site.webmanifest" />
 <meta name="msvalidate.01" content="7F3D17F56474B193FC9860226F33CB99" />
 
-<!-- Mobile Meta Tags -->
 <meta name="theme-color" content="#000000" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content={SITE.NAME} />
 <meta name="msapplication-TileImage" content="/favicon/android-chrome-192x192.png" />
 <meta name="msapplication-TileColor" content="#000000" />
-
 <meta name="generator" content={Astro.generator} />
 
-<!-- Font preloads -->
-<link rel="preload" href={inter400} as="font" type="font/woff2" crossorigin />
-<link rel="preload" href={inter600} as="font" type="font/woff2" crossorigin />
-<link rel="preload" href={lora400} as="font" type="font/woff2" crossorigin />
-<link rel="preload" href={lora600} as="font" type="font/woff2" crossorigin />
+<Font cssVariable="--font-inter" />
+<Font cssVariable="--font-lora" />
 
-<!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
-<!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 <meta name="author" content={author} />
 
-<!-- Open Graph -->
 <meta property="og:type" content={type} />
 <meta property="og:locale" content="en_US" />
 <meta property="og:site_name" content={SITE.NAME} />
@@ -120,15 +99,11 @@ const jsonLd =
 <meta property="og:image:height" content="512" />
 <meta property="og:image:alt" content={title} />
 
-<!-- Article-specific Open Graph -->
 {type === "article" && date && (
   <meta property="article:published_time" content={date.toISOString()} />
 )}
-{type === "article" && (
-  <meta property="article:author" content={author} />
-)}
+{type === "article" && <meta property="article:author" content={author} />}
 
-<!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:url" content={canonicalURL} />
 <meta name="twitter:title" content={title} />
@@ -136,12 +111,8 @@ const jsonLd =
 <meta name="twitter:image" content={ogImageURL} />
 <meta name="twitter:image:alt" content={title} />
 
-<!-- JSON-LD Structured Data -->
 <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-<ClientRouter />
-
-<!-- RSS Link -->
 <link
   rel="alternate"
   type="application/rss+xml"
@@ -149,122 +120,22 @@ const jsonLd =
   href={new URL("rss.xml", Astro.site)}
 />
 
-<script>
-  import type { TransitionBeforeSwapEvent } from "astro:transitions/client";
-  document.addEventListener("astro:before-swap", (e) =>
-    [
-      ...(e as TransitionBeforeSwapEvent).newDocument.head.querySelectorAll(
-        'link[as="font"]'
-      ),
-    ].forEach((link) => link.remove())
-  );
+<script is:inline>
+  (() => {
+    const userTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDark = userTheme === "dark" || ((userTheme === "system" || !userTheme) && prefersDark);
+
+    document.documentElement.classList.toggle("dark", isDark);
+  })();
 </script>
 
-<script is:inline>
-  function init() {
-    preloadTheme();
-    onScroll();
-    animate();
+<script>
+  import { initSite } from "@lib/client/site";
 
-    const backToTop = document.getElementById("back-to-top");
-    backToTop?.addEventListener("click", (event) => scrollToTop(event));
-
-    const backToPrev = document.getElementById("back-to-prev");
-    backToPrev?.addEventListener("click", () => window.history.back());
-
-    const lightThemeButton = document.getElementById("light-theme-button");
-    lightThemeButton?.addEventListener("click", () => {
-      localStorage.setItem("theme", "light");
-      toggleTheme(false);
-    });
-
-    const darkThemeButton = document.getElementById("dark-theme-button");
-    darkThemeButton?.addEventListener("click", () => {
-      localStorage.setItem("theme", "dark");
-      toggleTheme(true);
-    });
-
-    const systemThemeButton = document.getElementById("system-theme-button");
-    systemThemeButton?.addEventListener("click", () => {
-      localStorage.setItem("theme", "system");
-      toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
-    });
-
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", (event) => {
-        if (localStorage.theme === "system" || !localStorage.theme) {
-          toggleTheme(event.matches);
-        }
-      });
-
-    document.addEventListener("scroll", onScroll);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initSite, { once: true });
+  } else {
+    initSite();
   }
-
-  function animate() {
-    const animateElements = document.querySelectorAll(".animate");
-
-    animateElements.forEach((element, index) => {
-      setTimeout(() => {
-        element.classList.add("show");
-      }, index * 150);
-    });
-  }
-
-  function onScroll() {
-    if (window.scrollY > 0) {
-      document.documentElement.classList.add("scrolled");
-    } else {
-      document.documentElement.classList.remove("scrolled");
-    }
-  }
-
-  function scrollToTop(event) {
-    event.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }
-
-  function toggleTheme(dark) {
-    const css = document.createElement("style");
-
-    css.appendChild(
-      document.createTextNode(
-        `* {
-           -webkit-transition: none !important;
-           -moz-transition: none !important;
-           -o-transition: none !important;
-           -ms-transition: none !important;
-           transition: none !important;
-         }`
-      )
-    );
-
-    document.head.appendChild(css);
-
-    if (dark) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-
-    window.getComputedStyle(css).opacity;
-    document.head.removeChild(css);
-  }
-
-  function preloadTheme() {
-    const userTheme = localStorage.theme;
-
-    if (userTheme === "light" || userTheme === "dark") {
-      toggleTheme(userTheme === "dark");
-    } else {
-      toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", () => init());
-  document.addEventListener("astro:after-swap", () => init());
-  preloadTheme();
 </script>

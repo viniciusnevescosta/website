@@ -6,7 +6,7 @@ date: Jan 01 2026
 
 2025 was an important year for me.
 
-It was a year with two sides: real achievements that made me proud, and challenges that forced me to grow. 
+It was a year with two sides: real achievements that made me proud, and challenges that forced me to grow.
 
 Looking back now, I can see how much changed, not only in what I did day to day, but also in how I learned to deal with pressure, uncertainty, and my own expectations.
 
@@ -26,7 +26,7 @@ Suddenly, I wasn’t just keeping systems running, I was building things that di
 
 If I had to summarize my biggest work-related learning from 2025, it would be this: organization is not optional.
 
-An idea doesn’t become a working product just because it’s a good idea. It has to travel through many steps: planning, breaking down, prioritizing, refining, implementing, testing, adjusting. 
+An idea doesn’t become a working product just because it’s a good idea. It has to travel through many steps: planning, breaking down, prioritizing, refining, implementing, testing, adjusting.
 
 I learned that progress depends on structure, and structure is what keeps the team, and my own mind, from drowning in chaos.
 
@@ -50,11 +50,11 @@ I want to write about that system later, because it taught me a lot.
 
 With all that pressure, anxiety showed up, often.
 
-And honestly, it makes sense. My brain was constantly trying to do everything at once: give my best to pass the exam, while also staying sharp and reliable at work. 
+And honestly, it makes sense. My brain was constantly trying to do everything at once: give my best to pass the exam, while also staying sharp and reliable at work.
 
 That kind of mental load doesn’t disappear just because you “try harder.”
 
-It didn’t just affect my productivity, either. At times, anxiety got in the way of my interactions with the people around me. 
+It didn’t just affect my productivity, either. At times, anxiety got in the way of my interactions with the people around me.
 
 I was more irritable, more distracted, and more “in my head” than I wanted to be, and that made me realize I needed to take this seriously, not just push through it.
 
@@ -86,8 +86,8 @@ No rush. No constant sprint. No living as if everything is an emergency.
 
 I want consistency, not chaos.
 
-Because if 2025 taught me anything, it’s that growth doesn’t have to come from pressure alone. 
+Because if 2025 taught me anything, it’s that growth doesn’t have to come from pressure alone.
 
-It can also come from patience, structure, and learning to move forward without burning out. And that’s exactly the kind of days I want to build now. 
+It can also come from patience, structure, and learning to move forward without burning out. And that’s exactly the kind of days I want to build now.
 
 Slow is still forward.

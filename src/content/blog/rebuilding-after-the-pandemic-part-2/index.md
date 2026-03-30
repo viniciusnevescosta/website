@@ -14,8 +14,8 @@ At my ETEC, our Systems Analysis and Development class had around 40 students, b
 
 So the class was split into Side A and Side B—20 students each.
 
-- odd numbers → Side A  
-- even numbers → Side B  
+- odd numbers → Side A
+- even numbers → Side B
 
 My name starts with V, which put me near the bottom of the list… and on Side A (this was still pre-pandemic).
 
@@ -41,13 +41,13 @@ When we returned to in-person classes in 2022, the TCC conversations started alm
 
 The rules were pretty straightforward:
 
-- Build a project (real or fictional) for a business/institution  
-- Don’t charge for it  
-- Apply what we learned over the three years of the course  
+- Build a project (real or fictional) for a business/institution
+- Don’t charge for it
+- Apply what we learned over the three years of the course
 
 Simple on paper.
 
-At the time, I wanted to do the project alone—not because I dislike teamwork, but because I wanted to *prove to myself* I could carry a full project end-to-end.
+At the time, I wanted to do the project alone—not because I dislike teamwork, but because I wanted to _prove to myself_ I could carry a full project end-to-end.
 
 But there was a problem:
 
@@ -89,10 +89,10 @@ My second idea was more legit: build a condo management system for a family frie
 
 The users (building managers, caretakers, supervisors) would have daily task checklists like:
 
-- checking fire extinguishers  
-- elevator maintenance  
-- drainage system routines  
-- general inspections  
+- checking fire extinguishers
+- elevator maintenance
+- drainage system routines
+- general inspections
 
 It was useful… but the scope was massive. The more we mapped it, the clearer it became:
 
@@ -128,8 +128,8 @@ That’s when everything clicked.
 
 We defined something practical and clear:
 
-- Desktop + mobile system for internal stock control and daily operations  
-- A website for customers to check purchase-related information  
+- Desktop + mobile system for internal stock control and daily operations
+- A website for customers to check purchase-related information
 
 The problem?
 
@@ -149,12 +149,12 @@ Somehow, I managed to finish the interface in less than one month.
 
 Then the real work started: turning screens into a product.
 
-Over the following days, I focused on the parts that make a system feel *real*:
+Over the following days, I focused on the parts that make a system feel _real_:
 
-- cloud data persistence  
-- state management  
-- routing  
-- portability to desktop and mobile  
+- cloud data persistence
+- state management
+- routing
+- portability to desktop and mobile
 
 It wasn’t glamorous. It was a lot of debugging, a lot of late nights, and a lot of “why is this breaking now?”
 

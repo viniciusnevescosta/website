@@ -18,10 +18,10 @@ In the state of São Paulo, ETECs are known for offering high-quality public tec
 
 My routine was intense but simple:
 
-- school in the morning  
-- lunch at home  
-- a nap  
-- studying in the afternoon  
+- school in the morning
+- lunch at home
+- a nap
+- studying in the afternoon
 
 I kept that pace for months, took the exam at the end of the year, and in early 2020 I got the news: I was accepted.
 
@@ -69,17 +69,17 @@ I would recover the lost time and actually study what I had dreamed of for years
 
 I started watching the recorded classes I had ignored. I took free online courses. I created personal projects. I learned and practiced:
 
-- HTML / CSS / JavaScript  
-- PHP  
-- VB.NET  
-- SQL  
-- and I even installed Linux (Pop!_OS)  
+- HTML / CSS / JavaScript
+- PHP
+- VB.NET
+- SQL
+- and I even installed Linux (Pop!\_OS)
 
 More importantly, I learned something I wish I’d understood earlier:
 
 Effort pays you back.
 
-It wasn’t always fun, and it wasn’t always easy—but little by little, I got that feeling of progress back. The *I’m building something* feeling.
+It wasn’t always fun, and it wasn’t always easy—but little by little, I got that feeling of progress back. The _I’m building something_ feeling.
 
 That change came with a cost: I spent less time with friends because I wasn’t gaming as much anymore. And honestly, Linux wasn’t exactly great for gaming back then.
 
@@ -130,9 +130,11 @@ No pressure, right?
 We went there representing our school. The atmosphere felt bigger than anything we had done before. Professional. Serious. Real.
 
 ![[presenting.jpeg]]
+
 <p style="text-align: center;">Presenting Criptphy project.</p>
 
 ![[the-jury.jpeg]]
+
 <p style="text-align: center;">The jury panel during the event.</p>
 
 And then the results:

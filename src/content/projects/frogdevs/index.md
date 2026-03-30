@@ -1,6 +1,6 @@
 ---
 title: Frog Developers
-description: A three-project delivery for my final course project. 
+description: A three-project delivery for my final course project.
 date: 2022-12-01
 repoURL: https://github.com/FrogDevs
 ---
@@ -9,9 +9,9 @@ Frog Developers was my final course project at ETEC, delivered for a real busine
 
 The delivery included three projects:
 
-- Cross-platform inventory control system (Windows, Linux, Android)  
-- Customer website for business info and product availability  
-- Team website presenting our identity, members, and delivered work  
+- Cross-platform inventory control system (Windows, Linux, Android)
+- Customer website for business info and product availability
+- Team website presenting our identity, members, and delivered work
 
 > The story behind this project is in:  
 > [Rebuilding after the pandemic — Part 2](/blog/rebuilding-after-the-pandemic-part-2)
@@ -19,7 +19,7 @@ The delivery included three projects:
 ## My role
 
 Although this was a team project, I was responsible for all of the development.
-  
+
 ## Projects
 
 ### Inventory Control
@@ -27,6 +27,7 @@ Although this was a team project, I was responsible for all of the development.
 A multi-platform inventory system designed for daily internal operations: managing products, categories, and stores/units with a history log and expiration tracking.
 
 #### Highlights
+
 - Admin and visitor access modes
 - CRUD for products + search
 - Change history (audit-style log)
@@ -34,6 +35,7 @@ A multi-platform inventory system designed for daily internal operations: managi
 - Built to run on Windows, Linux, and Android
 
 #### Stack
+
 - Vue + Vite, TailwindCSS
 - Vue Router, Pinia
 - Firebase (Firestore)
@@ -44,12 +46,14 @@ A multi-platform inventory system designed for daily internal operations: managi
 A single-page website for customers with key business information, contact options, store lookup, and product availability.
 
 #### Highlights
+
 - Interactive sections/cards
 - Email sending flow
 - Store lookup + product availability
 - Integration entry point to the app
 
 #### Stack
+
 - Vue + Vite, TailwindCSS
 - Firebase (Firestore)
 - Netlify (deployment)
@@ -59,11 +63,13 @@ A single-page website for customers with key business information, contact optio
 The official Frog Developers website, focused on presenting the team and the work delivered during the project.
 
 #### Highlights
+
 - Light/dark themes
 - Internationalization (multi-language)
 - Modern landing layout
 
 #### Stack
+
 - Vue + Vite
 - UnoCSS, VueUse
 - Vue I18n
@@ -71,12 +77,15 @@ The official Frog Developers website, focused on presenting the team and the wor
 ## Media
 
 ![[inventory-control-login.png]]
+
 <p style="text-align: center;">Inventory control</p>
 
 ![[customer-website.png]]
+
 <p style="text-align: center;">Customer website</p>
 
 ![[team-website.png]]
+
 <p style="text-align: center;">Team website</p>
 
 ## What I learned

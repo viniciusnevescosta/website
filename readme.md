@@ -9,9 +9,10 @@ This is my personal website, built on top of [Mark Horn’s Astro Nano theme](ht
 I adapted it to fit my own needs, adding a few features and UX improvements along the way.
 
 What I changed / added
+
 - [Tailwind v4](https://tailwindcss.com) for the user interface;
 - [Bun](https://bun.com) for runtime and package manager;
-- [Flexoki](https://github.com/kepano/flexoki) theme palette;
+- [Tokyo Night](https://github.com/tokyo-night) theme palette;
 - Custom Obsidian plugin to edit content from the app;
 - Photo page to publish and organize my photography;
 - Image viewer component for a better browsing experience;
