@@ -5,8 +5,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint:fix": "oxlint --fix-dangerously",
-    "fmt": "oxfmt"
+    "fix": "oxlint --fix-dangerously && oxfmt"
   },
   "dependencies": {
     "@astrojs/check": "0.9.8",
@@ -35,6 +34,5 @@
   "devDependencies": {
     "oxfmt": "^0.42.0",
     "oxlint": "^1.57.0",
-    "oxlint-tsgolint": "^0.18.1"
   }
 }
