@@ -4,9 +4,9 @@ import Link from "@components/Link.astro";
 import { SITE } from "@consts";
 ---
 
-<header>
+<header transition:persist="site-header">
   <Container>
-    <div class="flex flex-wrap gap-y-2 justify-between">
+    <div class="flex flex-wrap justify-between gap-y-2">
       <Link href="/" underline={false}>
         <div class="font-semibold">
           {SITE.NAME}
@@ -26,7 +26,7 @@ import { SITE } from "@consts";
           {`/`}
         </span>
         <Link href="/photos">
-            photos
+          photos
         </Link>
       </nav>
     </div>

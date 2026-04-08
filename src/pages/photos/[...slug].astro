@@ -6,7 +6,6 @@ import Container from "@components/Container.astro";
 import FormattedDate from "@components/FormattedDate.astro";
 import BackToPrev from "@components/BackToPrev.astro";
 import Link from "@components/Link.astro";
-import PhotoViewer from "@components/PhotoViewer.astro";
 import { getPhotoVariant } from "@lib/photos";
 
 export async function getStaticPaths() {
@@ -109,18 +108,6 @@ const { Content } = await render(collection);
       </div>
     )}
 
-    <PhotoViewer />
 
-    <script>
-      import { bindPhotoCollection } from "@lib/client/photo-gallery";
-
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", () => bindPhotoCollection(), {
-          once: true,
-        });
-      } else {
-        bindPhotoCollection();
-      }
-    </script>
   </Container>
 </PageLayout>

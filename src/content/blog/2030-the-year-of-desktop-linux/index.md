@@ -8,11 +8,11 @@ I installed my first Linux distro in 2022: Pop!\_OS.<sup>[1](https://system76.co
 
 It didn’t take long before I did the thing everyone does after the first successful install: I started hopping. Fedora. Arch and even Nobara Project by GloriousEggroll.<sup>[2](https://nobaraproject.org/) </sup><sup>[3](https://github.com/GloriousEggroll)</sup>
 
-By the end of 2023 I bought my first Mac, and that did solve a lot of day-to-day friction for me—but it didn’t cure the Linux itch.
+By the end of 2023 I bought my first Mac, and that did solve a lot of day-to-day friction for me, but it didn’t cure the Linux itch.
 
 I think that’s the part people miss when they reduce Linux desktop to a niche alternative. Once you get used to an ecosystem that builds in public, where the plumbing is discussed openly and you can see the tradeoffs, it’s hard not to keep checking back in.
 
-But most people don’t “choose an OS,” they just buy a computer. And yes—Linux on desktop is still small today. StatCounter’s desktop numbers are still low single digits for Linux, for example, December 2025 shows Linux at 3.86% worldwide.<sup>[4](https://gs.statcounter.com/os-market-share/desktop/worldwide/)</sup>
+But most people don’t “choose an OS,” they just buy a computer. And yes, Linux on desktop is still small today. StatCounter’s desktop numbers are still low single digits for Linux, for example, December 2025 shows Linux at 3.86% worldwide.<sup>[4](https://gs.statcounter.com/os-market-share/desktop/worldwide/)</sup>
 
 So here’s where I’m landing: I think 2030 is the first year where desktop Linux can realistically stop feeling like a hobbyist choice and start feeling like a normal choice. Not because one magical breakthrough happens, but because a bunch of important details are finally lining up.
 
@@ -42,7 +42,7 @@ In practical terms, this consolidates effort around the Vulkan driver path (NVK)
 
 Then there’s Nova.
 
-Nova is a new upstream Linux kernel driver project for Nvidia GPUs that use the GSP (GPU System Processor) model. The kernel documentation describes Nova as two drivers—`nova-core` and `nova-drm`—and states that it intends to supersede Nouveau for GSP-based Nvidia GPUs.
+Nova is a new upstream Linux kernel driver project for Nvidia GPUs that use the GSP (GPU System Processor) model. The kernel documentation describes Nova as two drivers, `nova-core` and `nova-drm`, and states that it intends to supersede Nouveau for GSP-based Nvidia GPUs.
 
 `nova-core` provides the low-level firmware/hardware abstraction, and `nova-drm` is the DRM/KMS piece that plugs into the normal Linux graphics stack.<sup>[11](https://docs.kernel.org/gpu/nova/index.html)</sup>
 
@@ -62,9 +62,9 @@ DirectX 12 games on Linux usually run through Proton using `VKD3D-Proton`, which
 
 What’s relevant here is that there are signs Nvidia is actively targeting general improvements for `D3D12` and `VKD3D` workloads on Linux, rather than only one-off game fixes, which is exactly the kind of work that can move the baseline instead of just patching symptoms.<sup>[17](https://www.gamingonlinux.com/2025/08/nvidia-are-working-on-a-general-optimization-for-vkd3d-directx12-games-on-linux/)</sup>
 
-And this matters because Nvidia isn’t a niche vendor in the gaming world—it’s still the default GPU choice for a huge portion of Steam users.<sup>[18](https://store.steampowered.com/hwsurvey/Steam-Hardware-Software-Survey-Welcome-to-Steam)</sup>
+And this matters because Nvidia isn’t a niche vendor in the gaming world, it’s still the default GPU choice for a huge portion of Steam users.<sup>[18](https://store.steampowered.com/hwsurvey/Steam-Hardware-Software-Survey-Welcome-to-Steam)</sup>
 
-Most of these users will never learn what NVK, Zink, or Nova are—and they shouldn’t have to. The only metric that matters is the experience: you launch a game, you launch an app, you alt-tab, you drag a window across monitors, and nothing weird happens.
+Most of these users will never learn what NVK, Zink, or Nova are, and they shouldn’t have to. The only metric that matters is the experience: you launch a game, you launch an app, you alt-tab, you drag a window across monitors, and nothing weird happens.
 
 If the Linux experience becomes smoother on the hardware people already own, the adoption story changes.
 
@@ -76,7 +76,7 @@ KDE has been explicit about moving Plasma toward a Wayland-exclusive future, wit
 
 What I expect over the next four years isn’t “Wayland is done,” but something more practical: protocols that are currently debated, drafted, and sitting in review will either land, consolidate, or be replaced by clearer approaches.
 
-That process matters because paper cuts on Wayland are often not compositor bugs—they’re missing or incomplete protocol agreements that everyone is waiting on.
+That process matters because paper cuts on Wayland are often not compositor bugs, they’re missing or incomplete protocol agreements that everyone is waiting on.
 
 Wayland protocol development can leave even basic functionality sitting for months or years, and that becomes a product problem when you’re shipping devices and a compositor (Gamescope) to real users.
 
@@ -104,13 +104,13 @@ A big reason that experience feels real now is Proton. Proton is a stack of tran
 
 But there’s one compatibility cliff that turns this into a very non-philosophical argument: kernel-level anti-cheat.
 
-A lot of competitive multiplayer games rely on anti-cheat systems designed around deep Windows integration, including kernel-level drivers. Call of Duty’s RICOCHET, for example, explicitly uses a PC kernel-level driver as part of its approach.<sup>[30](https://support.activision.com/no/articles/ricochet-overview)</sup> In that world, it’s common for a game to run perfectly well under Proton—until matchmaking is blocked, the client is kicked, or the anti-cheat refuses to initialize.
+A lot of competitive multiplayer games rely on anti-cheat systems designed around deep Windows integration, including kernel-level drivers. Call of Duty’s RICOCHET, for example, explicitly uses a PC kernel-level driver as part of its approach.<sup>[30](https://support.activision.com/no/articles/ricochet-overview)</sup> In that world, it’s common for a game to run perfectly well under Proton, until matchmaking is blocked, the client is kicked, or the anti-cheat refuses to initialize.
 
 The frustrating part is that the ecosystem already has a workable pathway. Epic introduced Easy Anti-Cheat support for Linux, but enabling it is ultimately a developer or publisher choice.<sup>[31](https://onlineservices.epicgames.com/en-US/news/epic-online-services-launches-anti-cheat-support-for-linux-mac-and-steam-deck)</sup> BattlEye has a similar story: Proton support exists, but it’s opt-in per game.<sup>[32](https://www.phoronix.com/news/BattlEye-Proton-Steam-Deck)</sup> So you end up with a strange middle ground where compatibility is technically possible, culturally inconsistent, and commercially uncertain.
 
 This is why the discussion is hard: the incentives don’t line up cleanly. Studios don’t want to expand their attack surface for a relatively small slice of player base with full control over your system, and players don’t want to adopt a platform that locks them out of their most-played competitive titles.
 
-So yeah: it’s a chicken-and-egg problem. Companies are more likely to take Linux seriously when it’s a meaningful chunk of their revenue. But Linux only becomes a meaningful chunk of revenue if more people decide to use it anyway—even knowing that not every favorite game or app will work 100% on day one. That early tolerance is how market share grows.
+So yeah: it’s a chicken-and-egg problem. Companies are more likely to take Linux seriously when it’s a meaningful chunk of their revenue. But Linux only becomes a meaningful chunk of revenue if more people decide to use it anyway, even knowing that not every favorite game or app will work 100% on day one. That early tolerance is how market share grows.
 
 My bet is that the long-term escape hatch is less client trust and more server authority: more server-side validation, better telemetry, stronger behavior analysis, and maybe ML-assisted detection where it actually makes sense. But then you hit the question that decides everything: will the ROI ever justify the investment?
 
@@ -122,7 +122,7 @@ Most people don’t install an OS. They buy whatever shows up on the machine.
 
 That’s why OEM momentum compounds. Dell shipping Ubuntu preinstalled on XPS Developer Edition models is a small example, but it’s the kind of thing that normalizes the idea that Linux can be the default.<sup>[33](https://infohub.delltechnologies.com/p/dell-xps-13-plus-developer-edition-with-ubuntu-22-04-lts-pre-installed/) </sup><sup>[34](https://ubuntu.com/dell)</sup>
 
-If that expands—more models, more regions, more validation—then the first-run experience becomes less fragile. And once first-run is predictable, word-of-mouth gets dramatically easier.
+If that expands, more models, more regions, more validation, then the first-run experience becomes less fragile. And once first-run is predictable, word-of-mouth gets dramatically easier.
 
 A second-order effect is that rising interest in Linux makes it rational for some companies to treat the OS as part of the product, not just a removable software layer.
 
@@ -154,7 +154,7 @@ Android app compatibility matters because it’s a practical safety net for cert
 
 Monetization belongs here too. Right now, if you want to sell software to Linux users, you often end up routing around the Linux desktop’s fragmented storefront story. For games and software, the obvious defaults are Steam or itch.io, because they already provide payment rails, distribution, and discovery in a way that works cross-platform.<sup>[50](https://partner.steamgames.com/steamdirect) </sup><sup>[51](https://itch.io/developers)</sup>
 
-Today, Flatpak and Flathub is the closest thing Linux has to a shared app store layer across distributions—but payments are still in the process of becoming a real, normal, user-facing default.
+Today, Flatpak and Flathub is the closest thing Linux has to a shared app store layer across distributions, but payments are still in the process of becoming a real, normal, user-facing default.
 
 Flathub has been pretty direct about what’s been missing: not just a checkout UI, but the legal and governance foundation needed to handle taxes, compliance, and cross-border transactions. They’ve described integrating Stripe and building the backend pieces for purchases and donations, but also that switching payments on in a broad, store-like way depends on organizational and legal readiness.<sup>[52](https://discourse.flathub.org/t/situation-report-new-flathub-website-work-app-verifications-logins-etc/2259) </sup><sup>[53](https://discourse.flathub.org/t/flathub-in-2023/3808) </sup><sup>[54](https://docs.flathub.org/blog/over-one-million-active-users-and-growing)</sup>
 
@@ -170,6 +170,6 @@ I mentioned at the start that I bought a Mac in 2023 because it solved the frict
 
 Linux desktop doesn't need to destroy Windows or replace macOS to win. It just needs to stop punishing the people who choose it. It needs to reach a point where the trade-off for freedom isn't stability, but simply preference.
 
-The victory won't look like 50% market share. It will look like something much quieter: it will be the year where installing Linux stops feeling like a brave political statement or a hobbyist experiment—and starts feeling like just buying a new computer.
+The victory won't look like 50% market share. It will look like something much quieter: it will be the year where installing Linux stops feeling like a brave political statement or a hobbyist experiment, and starts feeling like just buying a new computer.
 
 > I enjoyed writing this article so much that I'm now considering writing another one about the year of Mac gaming, lol.

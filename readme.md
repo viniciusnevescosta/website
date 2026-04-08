@@ -12,12 +12,13 @@ What I changed / added
 
 - [Tailwind v4](https://tailwindcss.com) for the user interface;
 - [Bun](https://bun.com) for runtime and package manager;
-- [Tokyo Night](https://github.com/tokyo-night) theme palette;
+- My personal [Still Orbit](https://still-orbit.viniciusnevescosta.com) theme;
 - Custom Obsidian plugin to edit content from the app;
 - Photo page to publish and organize my photography;
 - Image viewer component for a better browsing experience;
 - New theme selector UX (cleaner and more intuitive);
 - RSS reader improvements and small fixes for better compatibility.
+- Other small changes...
 
 ## Reuse
 

@@ -5,7 +5,6 @@ import Container from "@components/Container.astro";
 import FormattedDate from "@components/FormattedDate.astro";
 import { readingTime } from "@lib/utils";
 import BackToPrev from "@components/BackToPrev.astro";
-import PhotoViewer from "@components/PhotoViewer.astro";
 
 export async function getStaticPaths() {
   const posts = (await getCollection("blog"))
@@ -49,18 +48,6 @@ const { Content } = await render(post);
       <Content />
     </article>
 
-    <PhotoViewer />
 
-    <script>
-      import { bindArticleImages } from "@lib/client/photo-gallery";
-
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", () => bindArticleImages(), {
-          once: true,
-        });
-      } else {
-        bindArticleImages();
-      }
-    </script>
   </Container>
 </PageLayout>
