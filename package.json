@@ -2,7 +2,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "bun src/scripts/fetch_unsplash.ts && astro build",
+    "build": "bun src/scripts/fetch_unsplash.ts || echo 'Failed to retrieve new photos using cache...' ; astro build",
     "preview": "astro preview",
     "astro": "astro",
     "fix": "oxfmt && oxlint --fix-dangerously"
