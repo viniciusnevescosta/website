@@ -1,5 +1,5 @@
 ---
-title: ‘2030 the year of desktop Linux’
+title: “2030 the year of desktop Linux”
 description: Why desktop Linux could feel normal by 2030.
 date: Jan 26 2026
 ---

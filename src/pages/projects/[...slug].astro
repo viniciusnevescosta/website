@@ -51,21 +51,21 @@ const { Content } = await render(project);
       </div>
       {(project.data.demoURL || project.data.repoURL) && (
         <nav class="flex gap-1">
+            {project.data.repoURL && (
+              <Link href={project.data.repoURL} external>
+                repo
+              </Link>
+            )}
+          {project.data.demoURL && project.data.repoURL && <span>/</span>}
           {project.data.demoURL && (
             <Link href={project.data.demoURL} external>
               demo
             </Link>
           )}
-          {project.data.demoURL && project.data.repoURL && <span>/</span>}
-          {project.data.repoURL && (
-            <Link href={project.data.repoURL} external>
-              repo
-            </Link>
-          )}
         </nav>
       )}
     </div>
-    <article data-photo-gallery>
+    <article class="document-content" data-photo-gallery>
       <Content />
     </article>
 

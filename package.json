@@ -5,15 +5,16 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "fix": "oxlint --fix-dangerously && oxfmt"
+    "fix": "oxfmt && oxlint --fix-dangerously"
   },
   "dependencies": {
     "@astrojs/check": "0.9.8",
     "@astrojs/mdx": "5.0.3",
     "@astrojs/rss": "4.0.18",
     "@astrojs/sitemap": "3.7.2",
-    "@fontsource/inter": "^5.2.8",
-    "@fontsource/lora": "^5.2.8",
+    "@fontsource/libertinus-mono": "5.2.1",
+    "@fontsource/libertinus-sans": "^5.2.2",
+    "@fontsource/libertinus-serif": "5.2.1",
     "@tailwindcss/typography": "0.5.0-alpha.3",
     "@tailwindcss/vite": "^4.1.18",
     "@typescript-eslint/eslint-plugin": "^7.18.0",

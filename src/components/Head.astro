@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import { Font } from "astro:assets";
 import { ClientRouter } from "astro:transitions";
 import { SITE } from "@consts";
 
@@ -63,13 +62,13 @@ const jsonLd =
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-<link rel="icon" href="/favicon/favicon.ico" sizes="any" />
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-<link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-chrome-192x192.png" />
-<link rel="icon" type="image/png" sizes="512x512" href="/favicon/android-chrome-512x512.png" />
-<link rel="manifest" href="/favicon/site.webmanifest" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+<link rel="manifest" href="/site.webmanifest" />
 
 <meta name="msvalidate.01" content="7F3D17F56474B193FC9860226F33CB99" />
 
@@ -80,9 +79,6 @@ const jsonLd =
 <meta name="msapplication-TileImage" content="/favicon/android-chrome-192x192.png" />
 <meta name="msapplication-TileColor" content="#000000" />
 <meta name="generator" content={Astro.generator} />
-
-<Font cssVariable="--font-inter" />
-<Font cssVariable="--font-lora" />
 
 <link rel="canonical" href={canonicalURL.href} />
 
@@ -114,7 +110,7 @@ const jsonLd =
 <meta name="twitter:image" content={ogImageURL} />
 <meta name="twitter:image:alt" content={title} />
 
-<script
+<script is:inline
   type="application/ld+json"
   set:html={JSON.stringify(jsonLd)}
 ></script>

@@ -6,7 +6,7 @@ date: Jan 06 2026
 
 I like to think of 2022 as the year I proved something to myself: I could lose my way, rebuild my habits, and still create something meaningful.
 
-In fact, that year took me from a post-pandemic slump to an award-winning project—and the path between those two points taught me more than any class ever did.
+In fact, that year took me from a post-pandemic slump to an award-winning project, and the path between those two points taught me more than any class ever did.
 
 This post is Part 1 of two stories from that year. Here, I’ll talk about my post-pandemic slump, what it did to me, and how I turned things around through a ridiculously ambitious project that ended up being recognized and awarded.
 
@@ -25,7 +25,7 @@ My routine was intense but simple:
 
 I kept that pace for months, took the exam at the end of the year, and in early 2020 I got the news: I was accepted.
 
-I was about to start high school combined with a technical program in Systems Analysis and Development—exactly what I’d always wanted. 2019 had been great, so why would anything go wrong from there… right?
+I was about to start high school combined with a technical program in Systems Analysis and Development, exactly what I’d always wanted. 2019 had been great, so why would anything go wrong from there… right?
 
 Right?
 
@@ -33,13 +33,13 @@ Right?
 
 Early 2020 brought news that still felt far away: a few cases of a new virus in China. Like most people, I didn’t understand what it would become.
 
-Then it went from a “small situation” to an epidemic, and from an epidemic to a global pandemic. Suddenly everything changed: isolation, masks, remote work, remote classes—life reorganized around minimizing contact.
+Then it went from a “small situation” to an epidemic, and from an epidemic to a global pandemic. Suddenly everything changed: isolation, masks, remote work, remote classes, life reorganized around minimizing contact.
 
 And for a long time, my world shrank to one place: my room.
 
 Studying from home didn’t feel like studying. Some classes were recorded. Interaction with teachers often happened through chat. I barely interacted with other students.
 
-To make it worse, my phone was broken—so I couldn’t even text properly. No hobbies. No healthy distractions. Just me, a computer, and assignments.
+To make it worse, my phone was broken, so I couldn’t even text properly. No hobbies. No healthy distractions. Just me, a computer, and assignments.
 
 My motivation collapsed.
 
@@ -47,13 +47,13 @@ My motivation collapsed.
 
 I fell into a pattern that felt harmless at first and slowly turned into a trap: gaming became my escape.
 
-Hours and hours of Minecraft, Rocket League, and whatever else helped me unplug from the day. I still submitted assignments—but I did them fast, often pulling answers from the internet, just to get back to playing.
+Hours and hours of Minecraft, Rocket League, and whatever else helped me unplug from the day. I still submitted assignments, but I did them fast, often pulling answers from the internet, just to get back to playing.
 
 The scary part?
 
 It “worked.”
 
-I turned things in, got decent grades, and stayed safe on paper—even while my discipline and ambition quietly disappeared.
+I turned things in, got decent grades, and stayed safe on paper, even while my discipline and ambition quietly disappeared.
 
 At some point, I couldn’t ignore it anymore.
 
@@ -63,7 +63,7 @@ I realized I was wasting my potential. I wasn’t the dedicated student I used t
 
 So at the end of 2021, I made a decision:
 
-I would recover the lost time and actually study what I had dreamed of for years—software development.
+I would recover the lost time and actually study what I had dreamed of for years, software development.
 
 ## Rebuilding myself through code
 
@@ -79,7 +79,7 @@ More importantly, I learned something I wish I’d understood earlier:
 
 Effort pays you back.
 
-It wasn’t always fun, and it wasn’t always easy—but little by little, I got that feeling of progress back. The _I’m building something_ feeling.
+It wasn’t always fun, and it wasn’t always easy, but little by little, I got that feeling of progress back. The _I’m building something_ feeling.
 
 That change came with a cost: I spent less time with friends because I wasn’t gaming as much anymore. And honestly, Linux wasn’t exactly great for gaming back then.
 
@@ -87,7 +87,7 @@ But looking back, it was 100% worth it.
 
 ## Back to school and the real world
 
-In 2022, the school adopted hybrid teaching—and by March, we were back in person.
+In 2022, the school adopted hybrid teaching, and by March, we were back in person.
 
 Mid-year, our school received an invitation to participate in an event promoted by an organization called Ideias de Futuro, in partnership with the São Paulo government and Google. The challenge was simple in concept and huge in impact:
 
@@ -95,7 +95,7 @@ Build a tech solution that could help people in the city.
 
 I knew I had to be part of it.
 
-I invited a friend—another aspiring developer—and we joined as a team.
+I invited a friend, another aspiring developer, and we joined as a team.
 
 ## A problem that was actually real
 
@@ -139,25 +139,25 @@ We went there representing our school. The atmosphere felt bigger than anything 
 
 And then the results:
 
-Our school won almost all the awards overall—and we were part of that story.
+Our school won almost all the awards overall, and we were part of that story.
 
 Criptphy won 2nd place in the Development category.
 
 And we received a Kindle as a prize.
 
-It wasn’t just a trophy moment. It was proof—proof that all those nights of studying, all those boring days where discipline mattered more than motivation, had built something inside me.
+It wasn’t just a trophy moment. It was proof, proof that all those nights of studying, all those boring days where discipline mattered more than motivation, had built something inside me.
 
 ## The lesson I was missing
 
 Winning 2nd place wasn’t the point.
 
-The point was realizing that I could come back—that discipline wasn’t “gone”, it was just buried under comfort, fear, and routine.
+The point was realizing that I could come back, that discipline wasn’t “gone”, it was just buried under comfort, fear, and routine.
 
 That project proved something simple but powerful:
 
 I wasn’t stuck. I was just untrained again.
 
-And once I started putting in the work consistently, things moved—skills, confidence, momentum.
+And once I started putting in the work consistently, things moved, skills, confidence, momentum.
 
 But 2022 wasn’t done teaching me.
 

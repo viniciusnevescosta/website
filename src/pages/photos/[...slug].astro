@@ -57,13 +57,13 @@ const { Content } = await render(collection);
       {collection.data.collectionURL && (
         <nav class="flex gap-1">
           <Link href={collection.data.collectionURL} external>
-            unsplash
+              collection
           </Link>
         </nav>
       )}
     </div>
 
-    <article class="mb-8">
+    <article class="document-content mb-8">
       <Content />
     </article>
 

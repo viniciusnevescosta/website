@@ -1,11 +1,11 @@
 ---
-title: Criptphy — Password Manager
+title: Criptphy
 description: A school project built for the Ideias de Futuro challenge.
 date: 2022-04-01
 repoURL: https://github.com/Criptphy/Criptphy
 ---
 
-Criptphy is a password manager prototype we built in 2022 for a civic-tech challenge promoted by Ideias de Futuro, in partnership with the São Paulo government and Google. The goal was to create a tech solution that could help people in the city—so we focused on a very real, very common problem:
+Criptphy is a password manager prototype we built in 2022 for a civic-tech challenge promoted by Ideias de Futuro, in partnership with the São Paulo government and Google. The goal was to create a tech solution that could help people in the city, so we focused on a very real, very common problem:
 
 A lot of people reuse the same password across multiple accounts because it’s easy… until it isn’t.
 
@@ -17,20 +17,20 @@ Criptphy was our attempt to turn that pain point into a practical solution: a si
 
 This was a two-person team project:
 
-- Me: Front-end (UI, layout, interaction, integration with the API);
-- My teammate: Back-end (server-side logic, database, endpoints).
+- Me: Front-end (UI, layout, interaction, integration with the API)
+- My teammate: Back-end (server-side logic, database, endpoints)
 
 ## Tech stack
 
-- Front-end: HTML, CSS, TypeScript;
-- Back-end: PHP;
-- Database: MySQL.
+- Front-end: HTML, CSS, TypeScript
+- Back-end: PHP
+- Database: MySQL
 
 ## Architecture
 
 Criptphy followed a straightforward split:
 
-- For the website we used: HTML, CSS and TypeScript;
+- For the website we used: HTML, CSS and TypeScript
 - A PHP back-end that handled data persistence and communication with MySQL
 - The front-end interacted with the back-end through HTTP requests (API-style integration)
 
@@ -38,8 +38,8 @@ Criptphy followed a straightforward split:
 
 During the event, we deployed the prototype like this:
 
-- Front-end: Heroku;
-- Back-end: Railway.
+- Front-end: Heroku
+- Back-end: Railway
 
 ## Current status
 
@@ -53,8 +53,8 @@ We were selected to present Criptphy in-person at the Ideias de Futuro center, i
 
 At the end of the event:
 
-- Criptphy won 2nd place in the Development category;
-- We received a Kindle as a prize.
+- Criptphy won 2nd place in the Development category
+- We received a Kindle as a prize
 
 ## Media
 

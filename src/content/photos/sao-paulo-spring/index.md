@@ -46,6 +46,6 @@ photos:
 
 Here are a few photos I took in São Paulo during the beginning of spring, around the expanded center area.
 
-I was walking with no rush, paying attention to small details—the light, the streets, the buildings, and the everyday movement that makes the city feel alive.
+I was walking with no rush, paying attention to small details. The light, the streets, the buildings, and the everyday movement that makes the city feel alive.
 
 This is just a simple collection of moments I wanted to keep.

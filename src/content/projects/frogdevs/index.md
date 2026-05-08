@@ -1,5 +1,5 @@
 ---
-title: Frog Developers
+title: Final course project
 description: A three-project delivery for my final course project.
 date: 2022-12-01
 repoURL: https://github.com/FrogDevs
@@ -93,7 +93,7 @@ The official Frog Developers website, focused on presenting the team and the wor
 - Scope is everything: a smaller, well-defined product ships faster and better.
 - A consistent design system improves both UX and dev speed.
 - Performance comes from details (bundling, image formats, loading strategy).
-- Presentation is part of the product—how you communicate the work matters.
+- Presentation is part of the product, how you communicate the work matters.
 
 ---
 

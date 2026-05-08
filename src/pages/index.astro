@@ -87,7 +87,7 @@ const projects = (await getCollection("projects"))
             reach out on social media or send me an email.
           </p>
         </article>
-        <ul class="flex flex-wrap gap-2">
+        <ul class="flex flex-wrap gap-2 font-sans text-[1rem] leading-[1.42]">
           {SOCIALS.map(SOCIAL => (
             <li class="flex gap-x-2 text-nowrap">
               <Link href={SOCIAL.HREF} external aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}>
@@ -96,9 +96,9 @@ const projects = (await getCollection("projects"))
               {"/"}
             </li>
           ))}
-          <li class="line-clamp-1">
+          <li class="flex gap-x-2 text-nowrap">
             <Link href={`mailto:${SITE.EMAIL}`} aria-label={`Email ${SITE.NAME}`}>
-                mail me
+              mail me
             </Link>
           </li>
         </ul>
@@ -106,3 +106,9 @@ const projects = (await getCollection("projects"))
     </div>
   </Container>
 </PageLayout>
+
+<!-- 
+
+
+
+-->

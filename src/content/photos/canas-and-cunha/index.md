@@ -152,8 +152,8 @@ photos:
 
 At the end of the year, my family decided to visit some relatives who live in the countryside. We traveled with a couple of friends, and after about four hours on the road, we arrived in a small town called Canas.
 
-After spending the night there, we headed to another small town named Cunha, about an hour away. Cunha sits high up, surrounded by mountains, and we spent most of our time in the rural area. It was a special kind of trip for me — I hadn’t been around farm animals since I was a kid.
+After spending the night there, we headed to another small town named Cunha, about an hour away. Cunha sits high up, surrounded by mountains, and we spent most of our time in the rural area. It was a special kind of trip for me, I hadn’t been around farm animals since I was a kid.
 
 That’s also where I met Kiko, a super friendly dog whose name was inspired by the character from Chaves. His favorite game was grabbing plastic bottles and bringing them to us so we could throw them, and he could run after them and bring them back again. Kiko ended up becoming part of the trip, and he’ll always be remembered in the photos I took.
 
-One day, I want to come back and hike up Pedra da Macela — they say you can see the sea from the top.
+One day, I want to come back and hike up Pedra da Macela, they say you can see the sea from the top.

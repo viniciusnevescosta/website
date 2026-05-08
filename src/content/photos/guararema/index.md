@@ -146,7 +146,7 @@ photos:
     alt: "Lamp post"
 ---
 
-In the middle of the year, I was feeling completely overwhelmed — work, college, and personal life all at once. So I decided to take a few days off to clear my head.
+In the middle of the year, I was feeling completely overwhelmed. Work, college, and personal life all at once. So I decided to take a few days off to clear my head.
 
 During those days, I played games and read a lot. That’s when I started One Piece and fell in love with it. In just a few days I finished the Alabasta arc, and now I’m in Jaya. Oda is definitely a genius.
 

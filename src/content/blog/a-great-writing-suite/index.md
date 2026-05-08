@@ -4,7 +4,7 @@ description: Open-source sync and backup for Obsidian.
 date: Dec 30 2023
 ---
 
-If you are looking for a way to keep your notes synchronized across all your devices while maintaining a bulletproof, automated backup history—without relying on proprietary clouds—this guide is for you.
+If you are looking for a way to keep your notes synchronized across all your devices while maintaining a bulletproof, automated backup history, without relying on proprietary clouds, this guide is for you.
 
 We are going to combine three powerful tools: Obsidian, Syncthing, and Gitwatch.
 
@@ -175,4 +175,4 @@ systemctl --user --now enable gitwatch@$(systemd-escape "'-r url/to/repository' 
 
 And there you have it. You now have a note-taking system that allows you to write on any device, syncs instantly via Syncthing, and creates an immutable backup history in the cloud via Gitwatch.
 
-It’s private, it’s robust, and best of all—it’s yours.
+It’s private, it’s robust, and best of all, it’s yours.

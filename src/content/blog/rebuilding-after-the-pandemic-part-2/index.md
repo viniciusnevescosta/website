@@ -6,13 +6,13 @@ date: Jan 12 2026
 
 In [Part 1](/blog/rebuilding-after-the-pandemic-part-1), I talked about the post-pandemic slump, how I rebuilt my discipline, and how that led to an award-winning project.
 
-This post is the second and final part of that story: how we built my final course project (TCC)—from the first half-baked ideas to the final delivery and presentation.
+This post is the second and final part of that story: how we built my final course project (TCC), from the first half-baked ideas to the final delivery and presentation.
 
 ## A classroom split in two
 
 At my ETEC, our Systems Analysis and Development class had around 40 students, but the lab rooms couldn’t fit everyone comfortably.
 
-So the class was split into Side A and Side B—20 students each.
+So the class was split into Side A and Side B, 20 students each.
 
 - odd numbers → Side A
 - even numbers → Side B
@@ -29,7 +29,7 @@ I asked teachers questions in the chat. I watched a bunch of projects. Little by
 
 A TCC wasn’t “just an assignment”.
 
-It was a full project, with planning, scope, documentation, presentation, and delivery—and I’d have less than a year to study and build something worth defending in front of a panel.
+It was a full project, with planning, scope, documentation, presentation, and delivery, and I’d have less than a year to study and build something worth defending in front of a panel.
 
 That reality hit me early.
 
@@ -47,7 +47,7 @@ The rules were pretty straightforward:
 
 Simple on paper.
 
-At the time, I wanted to do the project alone—not because I dislike teamwork, but because I wanted to _prove to myself_ I could carry a full project end-to-end.
+At the time, I wanted to do the project alone, not because I dislike teamwork, but because I wanted to _prove to myself_ I could carry a full project end-to-end.
 
 But there was a problem:
 
@@ -77,7 +77,7 @@ too many ideas, too little time.
 
 ### Idea #1: a Brainly answer site (yeah… no)
 
-My first idea—still during the pandemic—was a dynamic website that would query Brainly’s API and return answers to academic questions for students.
+My first idea, still during the pandemic, was a dynamic website that would query Brainly’s API and return answers to academic questions for students.
 
 I killed that idea pretty quickly. For obvious reasons.
 
@@ -164,7 +164,7 @@ And each day it moved more.
 
 ## The presentation
 
-When we were just a few days away from presenting, we shifted into rehearsal mode. We practiced the delivery, planned who would say what, polished the narrative, and tried to make the presentation feel confident—not improvised.
+When we were just a few days away from presenting, we shifted into rehearsal mode. We practiced the delivery, planned who would say what, polished the narrative, and tried to make the presentation feel confident, not improvised.
 
 Then we had one final idea.
 
@@ -188,12 +188,12 @@ It felt like recognition.
 
 ## The lesson that closed the chapter
 
-Looking back, the technical part mattered—but the real lessons were bigger:
+Looking back, the technical part mattered, but the real lessons were bigger:
 
-- A good project is a scoped project;
-- The right tools at the right time are leverage;
-- Execution beats perfect planning;
-- Presentation is part of the product.
+- A good project is a scoped project
+- The right tools at the right time are leverage
+- Execution beats perfect planning
+- Presentation is part of the product
 
 But the biggest takeaway of that year wasn’t even technical.
 

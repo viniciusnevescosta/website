@@ -26,7 +26,7 @@ Even when I wasn’t doing any of that, the pressure was still there. It felt li
 
 And honestly, Instagram seems designed to highlight only the best parts of life. People post vacations, achievements, beautiful moments, perfect angles, perfect smiles. After a while, it creates this fake atmosphere where everyone’s life looks flawless.
 
-Mine isn’t flawless. It’s not supposed to be. And pretending it is—either by posting or by comparing—just didn’t feel healthy.
+Mine isn’t flawless. It’s not supposed to be. And pretending it is, either by posting or by comparing, just didn’t feel healthy.
 
 Looking at other people’s lives often made me feel worse. Not because of them, but because of the constant comparison. It’s hard to stay grounded when your brain is being fed a never-ending stream of “look how great this is.”
 
@@ -42,15 +42,15 @@ The subreddits I followed were genuinely good. I learned a lot. I laughed a lot.
 
 But that’s the problem: it became too easy to get hooked.
 
-I would check it constantly. A quick look would turn into another post, then another, then another. It stole my focus in a way that didn’t look toxic at first—but it definitely was draining my attention over time.
+I would check it constantly. A quick look would turn into another post, then another, then another. It stole my focus in a way that didn’t look toxic at first, but it definitely was draining my attention over time.
 
 ## The only “social” platforms I still keep
 
-Right now, I only kept a few—and with clear boundaries:
+Right now, I only kept a few, and with clear boundaries:
 
-- LinkedIn: I only log in to update my professional information;
-- GitHub (for now): it has some social mechanics, but I use it to contribute to open source and publish my projects;
-- YouTube: I follow creators I consider more organic. Videos take longer to come out, but they’re usually higher quality and a good starting point to learn something new;
+- LinkedIn: I only log in to update my professional information
+- GitHub (for now): it has some social mechanics, but I use it to contribute to open source and publish my projects
+- YouTube: I follow creators I consider more organic. Videos take longer to come out, but they’re usually higher quality and a good starting point to learn something new
 
 ## The result: less anxiety, more peace
 
