@@ -1,49 +1,77 @@
 ---
-import { getCollection } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
-import Container from "@components/Container.astro";
-import ArrowCard from "@components/ArrowCard.astro";
+import photosData from "@data/photos.json";
 import { PHOTOS } from "@consts";
-import { groupEntriesByYearAndMonth } from "@lib/archive";
 
-const collections = (await getCollection("photos"))
-  .filter((collection) => !collection.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-
-const archive = groupEntriesByYearAndMonth(collections);
+const formatExif = (p: any) => {
+  const parts = [];
+  if (p.camera) parts.push(p.camera);
+  if (p.lens) parts.push(p.lens);
+  if (p.aperture) parts.push(`f/${p.aperture}`);
+  if (p.shutterSpeed) parts.push(`${p.shutterSpeed}s`);
+  if (p.iso) parts.push(`ISO ${p.iso}`);
+  return parts.join(" • ");
+};
 ---
 
 <PageLayout title={PHOTOS.TITLE} description={PHOTOS.DESCRIPTION}>
-  <Container>
+  <div class="px-4 sm:px-6 md:px-8 pb-10 max-w-[1800px] mx-auto">
     <div class="space-y-10">
-      <div class="animate font-semibold text-black dark:text-white">
+      <!-- <div class="animate font-semibold text-black dark:text-white text-2xl px-2">
         Photos
-      </div>
-      <div class="space-y-8">
-        {archive.map(({ year, months }) => (
-          <section class="animate space-y-5">
-            <div class="font-semibold text-black dark:text-white">
-              {year}
-            </div>
-            <div class="space-y-6">
-              {months.map(({ label, entries }) => (
-                <div class="space-y-3">
-                  <div class="text-sm tracking-wide lowercase text-base-600 dark:text-base-400">
-                    {label}
-                  </div>
-                  <ul class="flex flex-col gap-4">
-                    {entries.map((collection) => (
-                      <li>
-                        <ArrowCard entry={collection} />
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </section>
+      </div> -->
+
+      <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6" data-photo-collection>
+        {photosData.map((photo, index) => (
+          <div class="break-inside-avoid">
+            <button
+              type="button"
+              class="photo-item w-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-black/20 dark:focus:ring-white/30 rounded-sm group overflow-hidden"
+              data-photo-item
+              data-photo-index={index}
+              data-photo-url={photo.urlFull}
+              data-photo-alt={photo.altText || "Photography"}
+              data-photo-exif={formatExif(photo)}
+              aria-label={`Visualizar foto: ${photo.altText || "Photography"}`}
+            >
+              <div
+                class="w-full h-auto rounded-sm shadow-md group-hover:shadow-xl transition-all duration-300"
+                style={{
+                  aspectRatio: `${photo.width} / ${photo.height}`,
+                  backgroundColor: photo.color
+                }}
+              >
+                <img
+                  src={photo.url}
+                  alt={photo.altText || "Photography"}
+                  loading={index < 6 ? "eager" : "lazy"}
+                  decoding="async"
+                  class="w-full h-auto rounded-sm opacity-0 transition-opacity duration-500"
+                  onload="this.style.opacity='1'"
+                />
+              </div>
+            </button>
+          </div>
         ))}
       </div>
     </div>
-  </Container>
+  </div>
 </PageLayout>
+
+<script>
+  function initGallery() {
+    const items = Array.from(document.querySelectorAll('[data-photo-item]')) as HTMLElement[];
+    items.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        const photos = items.map(i => ({
+          url: i.dataset.photoUrl || '',
+          alt: i.dataset.photoAlt || '',
+          exif: i.dataset.photoExif || ''
+        }));
+        // @ts-ignore
+        window.openPhotoViewer?.(photos, index);
+      });
+    });
+  }
+  document.addEventListener('astro:page-load', initGallery);
+</script>
