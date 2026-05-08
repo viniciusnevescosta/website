@@ -54,11 +54,12 @@ Enter the number corresponding to the branch type:
 ```
 
 **Core Principles**
-Grove is heavily inspired by the **Conventional Commits** and **Conventional Branch** specifications. These standards dictate that commit messages and branch names should communicate the exact nature of the change—whether it is a new feature (`feat`), a bug fix (`fix`), or a documentation update (`docs`). 
+Grove is heavily inspired by the **Conventional Commits** and **Conventional Branch** specifications. These standards dictate that commit messages and branch names should communicate the exact nature of the change—whether it is a new feature (`feat`), a bug fix (`fix`), or a documentation update (`docs`).
 
 By standardizing these inputs, Grove provides several concrete benefits:
-* **Automated Changelogs:** A history populated with semantic commits can be easily parsed to generate accurate release notes.
-* **Readable History:** Developers can scan the Git log and immediately understand the scope and impact of previous changes without reading the full diff.
-* **Organized Branching:** Following Conventional Branch guidelines ensures that the purpose of a branch is immediately clear to all collaborators.
+
+- **Automated Changelogs:** A history populated with semantic commits can be easily parsed to generate accurate release notes.
+- **Readable History:** Developers can scan the Git log and immediately understand the scope and impact of previous changes without reading the full diff.
+- **Organized Branching:** Following Conventional Branch guidelines ensures that the purpose of a branch is immediately clear to all collaborators.
 
 Grove reduces the manual effort required to format messages and manage branches, allowing developers to focus on the code itself while maintaining a highly organized version control system.

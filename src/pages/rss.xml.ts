@@ -14,9 +14,7 @@ export async function GET(context: Context) {
 
   const projects = (await getCollection("projects")).filter((project) => !project.data.draft);
 
-  const photos = (await getCollection("photos")).filter((photo) => !photo.data.draft);
-
-  const items = [...blog, ...projects, ...photos].sort(
+  const items = [...blog, ...projects].sort(
     (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
   );
 
@@ -98,17 +96,6 @@ export async function GET(context: Context) {
           /<img([^>]*?)>/g,
           '<img$1 style="max-width: 100%; height: auto; margin: 10px 0;">',
         );
-
-        // Add photo gallery for photo collections
-        if (item.collection === "photos" && item.data.photos) {
-          const photosHTML = item.data.photos
-            .map(
-              (photo: any) =>
-                `<img src="${photo.url}" alt="${photo.alt}" style="max-width: 100%; height: auto; margin: 10px 0;" />`,
-            )
-            .join("\n");
-          htmlContent = htmlContent + "\n\n<h2>Photos</h2>\n" + photosHTML;
-        }
 
         return {
           title: item.data.title,

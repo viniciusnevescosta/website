@@ -1,38 +1,33 @@
 import { defineConfig } from "astro/config";
-import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
-import { remarkObsidianImages } from "./src/lib/remark-obsidian-images.js";
+import { remarkObsidianImages } from "./src/lib/remark-obsidian-images.ts";
 
 export default defineConfig({
   site: "https://viniciusnevescosta.com",
-  integrations: [mdx(), sitemap()],
+  integrations: [sitemap()],
   markdown: {
     remarkPlugins: [remarkObsidianImages],
   },
   prefetch: {
     defaultStrategy: "hover",
+    prefetchAll: true,
   },
   image: {
-    layout: "constrained",
-    responsiveStyles: true,
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
-    ],
+    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
     service: {
       entrypoint: "astro/assets/services/sharp",
       config: {
-        jpeg: { mozjpeg: true, quality: 76 },
-        webp: { effort: 6, quality: 74 },
-        avif: { effort: 4, quality: 55 },
-        png: { compressionLevel: 9 },
+        jpeg: { mozjpeg: true, quality: 80 },
+        webp: { effort: 4, quality: 80 },
+        avif: { effort: 4, quality: 65 },
       },
     },
   },
   vite: {
     plugins: [tailwindcss()],
+    build: {
+      cssMinify: "lightningcss",
+    },
   },
 });
