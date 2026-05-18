@@ -12,45 +12,118 @@ const formatExif = (p: any) => {
   if (p.iso) parts.push(`ISO ${p.iso}`);
   return parts.join(" • ");
 };
+
+const sortedPhotos = [...photosData]
+  .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+  .map((photo, index) => ({ ...photo, globalIndex: index }));
+
+const photosByYear = sortedPhotos.reduce((acc, photo) => {
+  const year = new Date(photo.publishedAt).getUTCFullYear().toString();
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+  acc[year].push(photo);
+  return acc;
+}, {} as Record<string, typeof sortedPhotos>);
+
+const sortedYears = Object.keys(photosByYear).sort((a, b) => Number(b) - Number(a));
+
+const timeline = sortedYears.map(year => {
+  const photos = photosByYear[year];
+  const months = [...new Set(photos.map(p => new Date(p.publishedAt).getUTCMonth()))].sort((a, b) => b - a);
+  return { year, months };
+});
+
+const monthNames = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
 ---
 
-<PageLayout title={PHOTOS.TITLE} description={PHOTOS.DESCRIPTION}>
-  <div class="px-4 sm:px-6 md:px-8 pb-10 max-w-[1800px] mx-auto">
-    <div class="space-y-10">
+<style is:global>
+  html { scroll-behavior: smooth; }
+</style>
 
-      <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6" data-photo-collection>
-        {photosData.map((photo, index) => (
-          <div class="break-inside-avoid">
-            <button
-              type="button"
-              class="photo-item w-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-black/20 dark:focus:ring-white/30 rounded-sm group overflow-hidden"
-              data-photo-item
-              data-photo-index={index}
-              data-photo-url={photo.urlFull}
-              data-photo-alt={photo.altText || "Photography"}
-              data-photo-exif={formatExif(photo)}
-              aria-label={`Visualizar foto: ${photo.altText || "Photography"}`}
-            >
+<PageLayout title={PHOTOS.TITLE} description={PHOTOS.DESCRIPTION}>
+
+  <div class="fixed right-4 sm:right-8 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col items-end pointer-events-none">
+    <div class="pointer-events-auto flex flex-col items-end pr-4 border-r border-black/20 dark:border-white/20 relative before:content-[''] before:absolute before:right-[-1px] before:top-0 before:bottom-0 before:w-[1px] before:bg-gradient-to-b before:from-transparent before:via-black/50 dark:before:via-white/50 before:to-transparent">
+
+      {timeline.map((data) => (
+        <div class="flex flex-col items-end mb-6 last:mb-0 group/year">
+          <a
+            href={`#year-${data.year}`}
+            id={`timeline-year-${data.year}`}
+            class="timeline-year text-sm font-medium tracking-widest text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-all duration-300 mb-3 [&.is-active]:text-black dark:[&.is-active]:text-white"
+            aria-label={`Ir para fotos de ${data.year}`}
+          >
+            {data.year}
+          </a>
+
+          <div class="flex flex-col items-end gap-3 pr-2">
+            {data.months.map((month) => (
               <div
-                class="w-full h-auto rounded-sm shadow-md group-hover:shadow-xl transition-all duration-300"
-                style={{
-                  aspectRatio: `${photo.width} / ${photo.height}`,
-                  backgroundColor: photo.color
-                }}
+                id={`timeline-${data.year}-${month}`}
+                class="timeline-month flex items-center gap-3 transition-all duration-300 origin-right group/month cursor-default [&.is-active_.month-text]:text-black dark:[&.is-active_.month-text]:text-white [&.is-active_.month-text]:font-bold [&.is-active_.month-line]:w-4 [&.is-active_.month-line]:bg-black dark:[&.is-active_.month-line]:bg-white"
               >
-                <img
-                  src={photo.url}
-                  alt={photo.altText || "Photography"}
-                  loading={index < 6 ? "eager" : "lazy"}
-                  decoding="async"
-                  class="w-full h-auto rounded-sm opacity-0 transition-opacity duration-500"
-                  onload="this.style.opacity='1'"
-                />
+                <span class="month-text text-[10px] uppercase tracking-widest text-black/30 dark:text-white/30 transition-colors duration-300 group-hover/month:text-black dark:group-hover/month:text-white">
+                  {monthNames[month]}
+                </span>
+                <div class="month-line w-1.5 h-[1px] bg-black/20 dark:bg-white/20 transition-all duration-300 group-hover/month:w-4 group-hover/month:bg-black dark:group-hover/month:bg-white"></div>
               </div>
-            </button>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="px-4 sm:px-6 md:px-8 xl:pr-32 2xl:pr-40 pb-10 max-w-[1800px] mx-auto">
+    <div class="space-y-16">
+
+      {sortedYears.map((year) => (
+        <section id={`year-${year}`} class="space-y-8 relative scroll-mt-24">
+          <h2 class="text-3xl font-bold tracking-tight text-black dark:text-white border-b border-gray-200 dark:border-gray-800 pb-2">
+            {year}
+          </h2>
+
+          <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6" data-photo-collection>
+            {photosByYear[year].map((photo) => {
+              const photoMonth = new Date(photo.publishedAt).getUTCMonth();
+              return (
+                <div class="break-inside-avoid" data-timeline-group={`${year}-${photoMonth}`}>
+                  <button
+                    type="button"
+                    class="photo-item w-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-black/20 dark:focus:ring-white/30 rounded-sm group overflow-hidden"
+                    data-photo-item
+                    data-photo-index={photo.globalIndex}
+                    data-photo-url={photo.urlFull}
+                    data-photo-alt={photo.altText || "Photography"}
+                    data-photo-exif={formatExif(photo)}
+                    data-photo-color={photo.color}
+                    aria-label={`Visualizar foto: ${photo.altText || "Photography"}`}
+                  >
+                    <div
+                      class="w-full h-auto rounded-sm shadow-md group-hover:shadow-xl transition-all duration-300"
+                      style={{
+                        aspectRatio: `${photo.width} / ${photo.height}`,
+                        backgroundColor: photo.color
+                      }}
+                    >
+                      <img
+                        src={photo.url}
+                        alt={photo.altText || "Photography"}
+                        loading={photo.globalIndex < 6 ? "eager" : "lazy"}
+                        decoding="async"
+                        class="w-full h-auto rounded-sm opacity-0 transition-opacity duration-500"
+                        onload="this.style.opacity='1'"
+                      />
+                    </div>
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      ))}
+
     </div>
   </div>
 </PageLayout>
@@ -63,12 +136,41 @@ const formatExif = (p: any) => {
         const photos = items.map(i => ({
           url: i.dataset.photoUrl || '',
           alt: i.dataset.photoAlt || '',
-          exif: i.dataset.photoExif || ''
+          exif: i.dataset.photoExif || '',
+          color: i.dataset.photoColor || ''
         }));
         // @ts-ignore
         window.openPhotoViewer?.(photos, index);
       });
     });
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-30% 0px -50% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const group = entry.target.getAttribute('data-timeline-group');
+          if (group) {
+            const [year, month] = group.split('-');
+
+            document.querySelectorAll('.timeline-month').forEach(el => el.classList.remove('is-active'));
+            document.querySelectorAll('.timeline-year').forEach(el => el.classList.remove('is-active'));
+
+            const activeMonth = document.getElementById(`timeline-${year}-${month}`);
+            const activeYear = document.getElementById(`timeline-year-${year}`);
+
+            if (activeMonth) activeMonth.classList.add('is-active');
+            if (activeYear) activeYear.classList.add('is-active');
+          }
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('[data-timeline-group]').forEach(el => observer.observe(el));
   }
   document.addEventListener('astro:page-load', initGallery);
 </script>

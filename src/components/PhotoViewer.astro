@@ -3,6 +3,7 @@ export interface Photo {
   url: string;
   alt: string;
   exif?: string;
+  color?: string;
 }
 
 export interface Props {
@@ -13,35 +14,28 @@ export interface Props {
 <div
   id="photo-viewer"
   transition:persist="photo-viewer"
-  class="fixed inset-0 z-[999] flex items-center justify-center bg-black/95 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 ease-out"
+  class="fixed inset-0 z-[999] flex items-center justify-center bg-black/95 backdrop-blur-md opacity-0 pointer-events-none transition-[opacity] duration-300 ease-out"
   data-viewer-active="false"
 >
-  <button
-    id="viewer-close"
-    class="absolute top-6 right-6 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-200 group"
-    aria-label="Close photo viewer"
-    type="button"
-  >
+  <div
+    id="viewer-color-overlay"
+    class="absolute inset-0 pointer-events-none"
+    style="background-color: transparent; transition: background-color 0.5s ease;"
+  ></div>
+
+  <button id="viewer-close" class="absolute top-6 right-6 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-200 group">
     <svg xmlns="http://www.w3.org/2000/svg" class="size-6 group-hover:rotate-90 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
       <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
     </svg>
   </button>
 
-  <button
-    id="viewer-prev"
-    class="absolute left-6 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-200 disabled:opacity-0"
-    aria-label="Previous photo"
-  >
+  <button id="viewer-prev" class="absolute left-6 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-200 disabled:opacity-0">
     <svg xmlns="http://www.w3.org/2000/svg" class="size-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
       <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
     </svg>
   </button>
 
-  <button
-    id="viewer-next"
-    class="absolute right-6 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-200 disabled:opacity-0"
-    aria-label="Next photo"
-  >
+  <button id="viewer-next" class="absolute right-6 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-200 disabled:opacity-0">
     <svg xmlns="http://www.w3.org/2000/svg" class="size-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
       <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
     </svg>
@@ -68,9 +62,7 @@ export interface Props {
       <div class="w-px h-4 bg-white/20"></div>
       <span id="viewer-title" class="max-w-[200px] sm:max-w-xs truncate font-medium"></span>
     </div>
-
-    <div id="viewer-exif" class="hidden px-3 py-1 bg-white/5 backdrop-blur-sm text-white/60 text-[10px] uppercase tracking-[0.2em] rounded border border-white/5">
-    </div>
+    <div id="viewer-exif" class="hidden px-3 py-1 bg-white/5 backdrop-blur-sm text-white/60 text-[10px] uppercase tracking-[0.2em] rounded border border-white/5"></div>
   </div>
 </div>
 
@@ -79,6 +71,7 @@ export interface Props {
     url: string;
     alt: string;
     exif?: string;
+    color?: string;
   }
 
   interface WindowWithPhotoViewer extends Window {
@@ -88,6 +81,7 @@ export interface Props {
 
   class PhotoViewerSystem {
     private viewer: HTMLElement;
+    private overlay: HTMLElement;
     private image: HTMLImageElement;
     private loading: HTMLElement;
     private counter: HTMLElement;
@@ -99,12 +93,13 @@ export interface Props {
     private currentIndex = 0;
 
     constructor() {
-      this.viewer = document.getElementById("photo-viewer")!;
-      this.image = document.getElementById("viewer-image") as HTMLImageElement;
+      this.viewer  = document.getElementById("photo-viewer")!;
+      this.overlay = document.getElementById("viewer-color-overlay")!;
+      this.image   = document.getElementById("viewer-image") as HTMLImageElement;
       this.loading = document.getElementById("viewer-loading")!;
       this.counter = document.getElementById("viewer-counter")!;
-      this.title = document.getElementById("viewer-title")!;
-      this.exif = document.getElementById("viewer-exif")!;
+      this.title   = document.getElementById("viewer-title")!;
+      this.exif    = document.getElementById("viewer-exif")!;
       this.prevBtn = document.getElementById("viewer-prev") as HTMLButtonElement;
       this.nextBtn = document.getElementById("viewer-next") as HTMLButtonElement;
 
@@ -118,13 +113,34 @@ export interface Props {
       this.viewer.addEventListener("click", (e) => {
         if (e.target === this.viewer || e.target === this.viewer.firstElementChild) this.close();
       });
-
       window.addEventListener("keydown", (e) => {
         if (this.viewer.getAttribute("data-viewer-active") !== "true") return;
         if (e.key === "Escape") this.close();
         if (e.key === "ArrowLeft") this.navigate(-1);
         if (e.key === "ArrowRight") this.navigate(1);
       });
+    }
+
+    private applyColorOverlay(color?: string) {
+      if (!color) {
+        this.overlay.style.backgroundColor = "transparent";
+        return;
+      }
+
+      const match = color.trim().match(/^#([0-9a-fA-F]{6})$/);
+      if (!match) {
+        this.overlay.style.backgroundColor = "transparent";
+        return;
+      }
+
+      const r = parseInt(match[1].slice(0, 2), 16);
+      const g = parseInt(match[1].slice(2, 4), 16);
+      const b = parseInt(match[1].slice(4, 6), 16);
+
+      const isDark = document.documentElement.classList.contains("dark");
+      const alpha  = isDark ? 0.25 : 0.15;
+
+      this.overlay.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${alpha})`;
     }
 
     public open(photos: Photo[], index = 0) {
@@ -154,6 +170,8 @@ export interface Props {
     private updatePhoto() {
       const photo = this.photos[this.currentIndex];
       if (!photo) return;
+
+      this.applyColorOverlay(photo.color);
 
       this.image.style.opacity = "0";
       this.loading.style.display = "flex";
@@ -186,11 +204,10 @@ export interface Props {
 
     private clearState() {
       this.image.src = "";
+      this.overlay.style.backgroundColor = "transparent";
       this.exif.textContent = "";
       this.exif.classList.add("hidden");
     }
-
-    public isReady() { return true; }
   }
 
   const win = window as WindowWithPhotoViewer;
