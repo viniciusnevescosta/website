@@ -1,6 +1,6 @@
 ---
 title: Still Orbit
-description: A three-project delivery for my final course project.
+description: My color theme
 date: 2026-04-01
 demoURL: https://stillorbit.viniciusnevescosta.com
 repoURL: https://github.com/viniciusnevescosta/still-orbit-theme

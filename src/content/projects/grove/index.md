@@ -1,6 +1,6 @@
 ---
 title: Grove
-description: A three-project delivery for my final course project.
+description: A GIT helper following convetional patterns.
 date: 2026-04-01
 demoURL: https://grove.viniciusnevescosta.com/
 repoURL: https://github.com/viniciusnevescosta/grove
