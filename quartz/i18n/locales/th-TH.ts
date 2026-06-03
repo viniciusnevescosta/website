@@ -36,7 +36,7 @@ export default {
       title: "รายการหน้า",
     },
     footer: {
-      createdWith: "สร้างด้วย",
+      // createdWith: "สร้างด้วย",
     },
     graph: {
       title: "มุมมองกราฟ",

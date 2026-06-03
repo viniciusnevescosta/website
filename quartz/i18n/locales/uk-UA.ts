@@ -36,7 +36,7 @@ export default {
       title: "Провідник",
     },
     footer: {
-      createdWith: "Створено за допомогою",
+      // createdWith: "Створено за допомогою",
     },
     graph: {
       title: "Вигляд графа",

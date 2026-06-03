@@ -36,7 +36,7 @@ export default {
       title: "エクスプローラー",
     },
     footer: {
-      createdWith: "作成",
+      // createdWith: "作成",
     },
     graph: {
       title: "グラフビュー",

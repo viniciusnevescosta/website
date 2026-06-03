@@ -37,7 +37,7 @@ export default {
       title: "وضع القارئ",
     },
     footer: {
-      createdWith: "أُنشئ باستخدام",
+      // createdWith: "أُنشئ باستخدام",
     },
     graph: {
       title: "التمثيل التفاعلي",

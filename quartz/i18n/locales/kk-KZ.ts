@@ -36,7 +36,7 @@ export default {
       title: "Зерттеуші",
     },
     footer: {
-      createdWith: "Құрастырылған құрал:",
+      // createdWith: "Құрастырылған құрал:",
     },
     graph: {
       title: "Граф көрінісі",

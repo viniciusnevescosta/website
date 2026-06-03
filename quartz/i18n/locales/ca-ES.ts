@@ -36,7 +36,7 @@ export default {
       title: "Explorador",
     },
     footer: {
-      createdWith: "Creat amb",
+      // createdWith: "Creat amb",
     },
     graph: {
       title: "Vista Gràfica",
