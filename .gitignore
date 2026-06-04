@@ -9,7 +9,6 @@ quartz/cli/tui/dist/
 .astro/
 .obsidian/
 .quartz-cache
-.quartz/
 
 # dependencies
 node_modules/
