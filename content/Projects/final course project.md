@@ -72,20 +72,6 @@ The official Frog Developers website, focused on presenting the team and the wor
 - UnoCSS, VueUse
 - Vue I18n
 
-## Media
-
-![[inventory-control-login.png]]
-
-<p style="text-align: center;">Inventory control</p>
-
-![[customer-website.png]]
-
-<p style="text-align: center;">Customer website</p>
-
-![[team-website.png]]
-
-<p style="text-align: center;">Team website</p>
-
 ## What I learned
 
 - Scope is everything: a smaller, well-defined product ships faster and better.

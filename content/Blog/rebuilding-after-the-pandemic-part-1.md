@@ -128,11 +128,11 @@ No pressure, right?
 
 We went there representing our school. The atmosphere felt bigger than anything we had done before. Professional. Serious. Real.
 
-![[presenting.jpeg]]
+![[rebuilding-after-the-pandemic-part-1_1.jpeg]]
 
 <p style="text-align: center;">Presenting Criptphy project.</p>
 
-![[the-jury.jpeg]]
+![[rebuilding-after-the-pandemic-part-1_2.jpeg]]
 
 <p style="text-align: center;">The jury panel during the event.</p>
 

@@ -54,16 +54,6 @@ At the end of the event:
 - Criptphy won 2nd place in the Development category
 - We received a Kindle as a prize
 
-## Media
-
-![[hero.png]]
-
-<p style="text-align: center;">Landing Page: Hero section.</p>
-
-![[about.png]]
-
-<p style="text-align: center;">Landing Page: About section.</p>
-
 ---
 
 ### References
